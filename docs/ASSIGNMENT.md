@@ -5,11 +5,14 @@
 **SimpleTD** is a browser-based tower defense (TD) game. The core twist is the
 **maze-building mechanic**: instead of placing towers along a fixed path, the
 player builds towers freely on an open grid to **shape the path** that enemies
-must walk from a **spawn location** to a **target location**. Enemies normally
-do not attack towers — they have HP and armor and try to reach the target. The
-**only exception** is when the player builds the maze so that no walking path to
-any target exists: in that case enemies take the shortest path and destroy the
-towers blocking their way (see §3.2/§3.3).
+must walk from a **spawn location** to a **target location**. Each spawn is
+assigned exactly one target; an enemy always knows which target it is heading
+for. Enemies normally do not attack towers — they have HP and armor and try to
+reach their target. The **only exception** is when the player builds the maze so
+that no walking path to that enemy's target exists: in that case the enemy takes
+the shortest route (measured as **Manhattan path-distance** while **ignoring
+towers**) toward its target and destroys the towers blocking its way (see
+§3.2/§3.3).
 
 The game must run in any modern web browser on:
 
@@ -26,8 +29,8 @@ perform well on mid-range mobile hardware.
 ### 2.1 Goals
 
 - A playable TD game running entirely client-side in the browser.
-- Level-based progression: each level defines a grid, spawn point(s), target
-  point(s), enemy waves, and starting resources.
+- Level-based progression: each level defines a grid, a set of **routes**
+  (spawn→target tuples, see §3.1), enemy waves, and starting resources.
 - Maze-building: towers act as obstacles that force enemies to take longer
   routes; pathfinding recomputes dynamically.
 - Cross-platform input: mouse + keyboard on desktop, touch on mobile.
@@ -44,8 +47,9 @@ perform well on mid-range mobile hardware.
 - No in-app purchases / monetization in v1 — **not yet, but be ready for it**
   (keep the economy layer isolated so monetization can be layered on later).
 - Enemies do **not** attack or destroy towers, **except** when the maze fully
-  blocks all paths to every target — then they destroy towers on the shortest
-  path (see §3.2/§3.3). Towers therefore have HP and enemies have attack damage.
+  blocks all paths from a spawn to **its assigned target** — then enemies from
+  that spawn destroy towers on the shortest route (see §3.2/§3.3). Towers
+  therefore have HP and enemies have attack damage, attack range, and fire rate.
 - No level editor UI in v1 (levels defined via data files).
 
 ---
@@ -59,7 +63,17 @@ perform well on mid-range mobile hardware.
   `spawn`, `target`, `tower` (occupied by a placed tower).
 - Spawn cells and target cells are never buildable.
 - A level may define **multiple spawn cells and multiple target cells**; this is
-  used to increase difficulty in later levels.
+  used to increase difficulty in later levels. The map is defined as a list of
+  **spawn+target tuples (routes)**, not as two independent arrays of spawns and
+  targets. **There is no multi-target scenario:** each spawn has one and only one
+  target. Multiple spawns **may** share the same target cell, but a single spawn
+  never points at more than one target.
+- **Map validity:** cells of different types may never coincide (a cell cannot
+  be both, e.g., `spawn` and `blocked`); such a map is invalid. Each spawn must
+  appear in exactly one route and be paired with exactly one target. A target
+  cell may never be completely walled in by permanent `blocked` cells. A level is
+  valid only if there is at least one walking path from every spawn to its
+  assigned target.
 
 ### 3.2 Maze Building
 
@@ -72,11 +86,41 @@ perform well on mid-range mobile hardware.
   route and **destroy the towers in their way** (see §3.3). The engine must
   still provide a fast "would this placement block all paths?" check to drive
   this behavior and the build-UI preview.
-- Enemies always follow the current shortest available path (recomputed when the
-  maze changes). When no path exists, they path toward the nearest target,
-  destroying blocking towers along the shortest route.
+- Enemies always follow the current shortest available path to **their assigned
+  target** (recomputed when the maze changes). The "would this placement block
+  all paths?" check is **per-spawn against its own target**: a placement is a
+  blocking (no-path) situation for an enemy only when no walking path from its
+  spawn to its target remains. One spawn may be blocked while another is not.
+- **No-path behavior:** when an enemy has no path to its target, it first walks
+  as close to that target as possible — advancing to the reachable cell that
+  minimizes the sum of (distance already walked) + (remaining **Manhattan
+  path-distance** to the target, ignoring towers). It then finds the nearest
+  tower blocking the path toward the target and, once that tower is within the
+  enemy's attack range, starts attacking it (see §3.3). All distances throughout
+  the engine (movement, pathfinding cost, no-path fallback, and range checks)
+  are measured as **Manhattan path-distance**: the length of the shortest
+  4-directional route that respects grid bounds and permanent `blocked` cells
+  but **ignores towers**. On an obstacle-free grid this equals the straight
+  `|dx| + |dy|` Manhattan distance. When two or more reachable cells tie for the
+  minimizing sum above, the enemy prefers the cell with the smaller remaining
+  Manhattan path-distance to the target, and if still tied, the lower `(y, x)`
+  cell coordinate. The **nearest tower blocking the path** is the first tower
+  lying on the enemy's shortest tower-ignoring route to the target, measured by
+  Manhattan path-distance from the enemy's current cell.
+- **Recompute on tower death:** whenever a tower is destroyed, the maze changes,
+  so the per-spawn "blocks all paths?" check is re-run and every affected enemy
+  **immediately** switches back to normal shortest-path movement if a real path
+  to its target has reopened.
+- **Re-advance after tower death mid-attack:** an enemy that was attacking a
+  blocking tower must, the moment any tower dies, re-evaluate the per-spawn
+  path-finding rule. If a real path reopened it resumes normal shortest-path
+  movement; if paths are still fully blocked it re-runs the **no-path behavior**
+  above — re-advancing as close to the target as possible and, if needed,
+  re-activating the no-path attack behavior against the next blocking tower.
 - **Selling/removing towers is a must-have:** the player can sell a tower for
-  **75% of its accumulated price** (initial purchase cost + all upgrade costs).
+  **75% of its purchase price** (v1 has no upgrades — see §13), **rounded to the
+  nearest integer**. A tower may be sold at any time, **including mid-wave and
+  while it is under attack**; the selling price is not affected by damage taken.
   Selling reopens the cell.
 
 ### 3.3 Enemies
@@ -85,16 +129,27 @@ perform well on mid-range mobile hardware.
   shortest path.
 - Enemy attributes:
   - **HP** (hit points)
-  - **Armor** (flat or percentage damage reduction — define clearly, see §5)
-  - **Speed** (cells per second)
+  - **Armor** (percentage damage reduction, 0–100 — see §5)
+  - **Speed** (cells per second; movement is continuous with sub-cell
+    interpolation, see §4.3)
   - **Bounty** (currency awarded on kill)
   - **Leak damage** (lives lost if the enemy reaches the target)
   - **Attack damage** (damage dealt to towers — used only in the no-path case)
-- Enemies do **not** attack towers, **except** when there is no path to any
-  target. In that case they take the shortest route toward a target and attack
-  (destroy) any tower blocking that route, using their attack damage. The
-  tower/enemy combat here follows the **same rules** as towers attacking enemies
-  (damage vs. HP, using the §5 damage model).
+  - **Attack range** (cells; how close the enemy must be to attack a tower)
+  - **Fire rate** (attacks/sec against towers in the no-path case)
+- Enemies do **not** attack towers, **except** when there is no path to **their
+  assigned target**. In that case they first advance as close to the target as
+  possible (see §3.2), then attack the nearest blocking tower once it is within
+  attack range, firing at their fire rate. The tower/enemy combat here follows
+  the **same rules** as towers attacking enemies (damage vs. HP, using the §5
+  damage model), including the minimum-damage floor.
+- **Simultaneity:** many enemies may target and stack damage on the same
+  blocking tower, and multiple enemies may occupy and attack from adjacent cells
+  at the same time. Within a single tick all attacks scheduled for that tick are
+  applied to the tower's HP first, and the death check runs once afterwards;
+  overkill damage is simply wasted (no refund, no carry-over).
+- **No refund:** when an enemy destroys a tower the player receives no refund —
+  losing the tower is the penalty for blocking the maze.
 - Different enemy types (e.g., fast/low-HP, slow/high-armor, boss) selectable per
   wave.
 
@@ -103,18 +158,53 @@ perform well on mid-range mobile hardware.
 - Towers are placed for a currency cost and:
   - Attack enemies within range.
   - Have attributes: **HP**, damage, range, fire rate (attacks/sec), and a
-    targeting strategy (e.g., first, last, closest, strongest). HP is used when
-    enemies destroy blocking towers in the no-path case (see §3.2/§3.3).
+    targeting strategy (`first`, `last`, `closest`, `strongest`). HP is used when
+    enemies destroy blocking towers in the no-path case (see §3.2/§3.3). Because
+    each enemy has exactly one assigned target, `first`/`last` are unambiguous:
+    they refer to the enemy's progress along its path toward that target,
+    measured as the **remaining Manhattan path-distance** to the target (`first`
+    = smallest remaining distance / furthest along, `last` = largest remaining
+    distance / least advanced). During the no-path fallback an enemy has no
+    normal path, so its progress is measured the same way: the remaining
+    Manhattan path-distance (ignoring towers) from its current cell to the
+    target. `closest` is the enemy at the smallest Manhattan path-distance from
+    the tower's own cell; `strongest` is the enemy with the highest **current
+    HP** (ties fall through to the rule below).
+  - **Tie-breaking rule (all strategies):** whenever a targeting strategy leaves
+    two or more candidate enemies tied (e.g., equal progress, equal distance, or
+    equal strength), the tower picks the enemy that was **spawned first** (lowest
+    spawn order / oldest on the field). This last-resort tie-breaker applies to
+    every tower targeting strategy.
+  - **HP damage is permanent:** towers are not repaired and do not regenerate HP
+    between waves; damage persists until the tower is destroyed or the game ends.
   - Optionally: damage type / armor interaction, splash radius, slow effect.
 - Multiple tower types with distinct roles (e.g., basic, splash, slow, sniper).
-- Optional upgrades per tower.
+- **Tower upgrades are out of scope for v1** (post-v1, see §13).
 
 ### 3.5 Waves & Levels
 
 - Each level has an ordered list of **waves**. Each wave lists enemy groups
   (type, count, spawn interval).
-- Player triggers the next wave (or auto-start after a countdown).
-- Win condition: survive all waves (target lives > 0 at the end).
+- Player triggers the next wave, or it **auto-starts after a fixed 10-second
+  countdown**. Waves may **overlap**: if the player starts (or the countdown
+  triggers) the next wave before the previous one is cleared, the new enemies
+  are simply added to those already on the field.
+- **Reward accounting under overlap:** the reward is an **attribute of each
+  spawned unit** (its `bounty`). It is fixed on the unit **at the moment it is
+  spawned** and paid out when that unit is killed, regardless of which wave is
+  active or how many waves overlap. There is no separate wave-level reward that
+  could be double-counted or lost during overlap.
+- Win condition: all waves have been fully spawned **and there are no enemies
+  left on the field** (and player lives > 0). Because waves may overlap, the win
+  is evaluated on the emptiness of the field, not on per-wave boundaries.
+- **Enemy removal (leak):** an enemy that reaches its target deals its leak
+  damage and is **immediately removed** from the field, so it counts toward the
+  "no enemies left" win check.
+- **Stalemate:** if every remaining enemy is permanently stuck in the no-path
+  attack state (never dying and never reaching a target), the field never empties
+  and the game is neither won nor lost until towers are destroyed and the enemies
+  either leak (possible loss) or a path reopens. This is the intended
+  consequence of fully mazing yourself in.
 - Lose condition: player lives reach 0.
 - Resources: starting currency and starting lives defined per level.
 
@@ -147,15 +237,32 @@ perform well on mid-range mobile hardware.
 
 - Fixed-timestep game loop (e.g., 60 updates/sec) with interpolation for
   rendering, decoupled from render rate via `requestAnimationFrame`.
+- Enemy movement is **continuous through cells** (sub-cell interpolation), not
+  cell-stepped, so towers and enemies can be smoothly animated within each cell
+  (a cell has a fixed **logical** square size, see §6.1, scaled to pixels at
+  render time).
+- **Movement vs. re-routing granularity:** although the loop runs at a fixed
+  rate (e.g., 60 Hz) and the maze may change mid-cell, an enemy **always
+  finishes moving into the cell it is currently entering** before it makes any
+  new decision (re-route, switch to no-path behavior, etc.). Decisions are taken
+  only at cell boundaries, never mid-cell.
+- **Build restriction:** the player **cannot build a tower on a cell that is
+  currently occupied by an enemy.** While an enemy is interpolating between two
+  cells it is considered to occupy **both** the cell it is leaving and the cell
+  it is entering, so neither can be built on until it has fully entered its next
+  cell. This keeps enemy movement into a target cell unambiguous.
 - Efficient pathfinding: recompute only when the maze changes, not every frame.
+- **Maximum grid size is 100×50 cells** (configurable). The pathfinding and
+  "recompute only on change" performance guarantees must hold up to this size.
 - Avoid per-frame allocations in hot loops; reuse objects/pools for
   projectiles/enemies.
 
 ### 4.4 Pathfinding
 
-- Use grid pathfinding (A\* or BFS/Dijkstra on the grid).
-- Support 4-directional movement in v1 (8-directional is a nice-to-have; if used,
-  prevent diagonal corner-cutting through tower cells).
+- Use grid pathfinding (A\* or BFS/Dijkstra on the grid), computed per spawn
+  toward that spawn's assigned target.
+- Movement is strictly **4-directional**. 8-directional movement is **not**
+  supported (neither in v1 nor as a stretch goal).
 - Provide a fast "would this placement block all paths?" check to drive the
   build-UI preview and the no-path fallback behavior (§3.2).
 - Enemies already on the field must gracefully re-route when the path changes,
@@ -165,6 +272,8 @@ perform well on mid-range mobile hardware.
 
 - Store level-unlock progress and settings (volume, etc.) in `localStorage`.
 - Graceful handling when storage is unavailable.
+- **Progression is strictly linear.** On first launch only level 1 is unlocked;
+  completing a level unlocks the next one in order.
 
 ---
 
@@ -172,15 +281,36 @@ perform well on mid-range mobile hardware.
 
 Implement and document a clear damage formula. Recommended baseline:
 
-- **Armor as flat reduction:** `damage_dealt = max(1, tower_damage - enemy_armor)`
-  (always deal at least 1 to avoid invulnerability), **or**
 - **Armor as percentage (chosen for v1):**
-  `damage_dealt = tower_damage * (1 - armor_pct)`.
+  `damage_dealt = max(1, damage * (1 - armor_pct))`.
 
-**Decision:** use the **percentage armor** model for v1. Keep it consistent,
-apply the same formula for enemies attacking towers in the no-path case, and
-expose the constants in a central config so balancing is easy. Optional damage
-types (e.g., "piercing" ignores a portion of armor) can be added later.
+**Decision:** use the **percentage armor** model for v1. Armor is expressed as a
+percentage (`armor_pct` = armor / 100, where `armor` is an integer in 0–100).
+A **minimum-damage floor of 1** always applies, so even armor ≥ 100% still takes
+at least 1 damage per hit (no invulnerability). Keep it consistent, apply the
+same formula for enemies attacking towers in the no-path case, and expose the
+constants in a central config so balancing is easy. Optional damage types (e.g.,
+"piercing" ignores a portion of armor) can be added later.
+
+### 5.1 Range, splash, and slow semantics
+
+- **Range (towers and enemy attack range):** measured in cells using the
+  **Manhattan path-distance** from the attacker's cell (consistent with the
+  engine-wide metric in §3.2). Keep the metric behind a single helper so it can
+  be changed (e.g., to Euclidean/Chebyshev) later.
+- **Fractional ranges:** a target at Manhattan distance `d` is in range when
+  `d <= ceil(range)`. Fractional range values are therefore rounded **up** for
+  the comparison.
+- **Splash:** `splashRadius` is in cells, measured as **Manhattan path-distance**
+  from the splash center using the same `d <= ceil(splashRadius)` rule as range;
+  splash deals **full damage** across the whole radius (no edge falloff in v1).
+- **Slow:** a slow effect has a `slowPct` and a `slowDurationMs`. Slows do **not**
+  stack: a new slow hit does not add up. Instead the **strongest** slow (the
+  highest `slowPct`) applies, and its remaining duration is refreshed on **every**
+  new hit regardless of that hit's strength. **Slow always
+  targets only enemies** (never towers), so it does not interact with the
+  tower-damage floor: the damage floor / armor / splash rules apply to HP damage,
+  while slow is a separate movement-only effect on enemies.
 
 ---
 
@@ -197,15 +327,21 @@ code.
   "id": "level-01",
   "name": "First Steps",
   "grid": { "width": 15, "height": 10 },
-  "cellSize": 48,
-  "spawns": [ { "x": 0, "y": 5 } ],
-  "targets": [ { "x": 14, "y": 5 } ],
+  "cellSize": 48,        // logical units per cell (not pixels); scaled to the
+                         // viewport at render time (see §4.2/§4.3)
+  // Each route pairs exactly one spawn with exactly one target as a tuple.
+  // Spawns and targets are NOT independent arrays; there is no multi-target
+  // scenario — every spawn has one and only one target.
+  "routes": [
+    { "spawn": { "x": 0, "y": 5 }, "target": { "x": 14, "y": 5 } }
+  ],
   "blocked": [ { "x": 7, "y": 0 }, { "x": 7, "y": 1 } ],
   "startingCurrency": 200,
   "startingLives": 20,
   "waves": [
     {
-      "reward": 50,
+      // No wave-level reward: the reward is the per-unit `bounty` (see §6.2),
+      // fixed on each unit at spawn time (see §3.5).
       "groups": [
         { "enemyType": "grunt", "count": 10, "intervalMs": 800 }
       ]
@@ -220,11 +356,13 @@ code.
 {
   "id": "grunt",
   "hp": 100,
-  "armor": 5,
-  "speed": 1.5,          // cells per second
-  "bounty": 10,
+  "armor": 5,            // percentage (0–100); 5 = 5% damage reduction
+  "speed": 1.5,          // cells per second (continuous movement)
+  "bounty": 10,          // reward; copied onto each unit at spawn time (§3.5)
   "leakDamage": 1,
-  "attackDamage": 10,   // damage dealt to towers when no path exists
+  "attackDamage": 10,    // damage dealt to towers when no path exists
+  "attackRange": 1.0,    // cells (Manhattan path-distance); reach vs. towers
+  "fireRatePerSec": 1.0, // attacks/sec against towers in the no-path case
   "sprite": "grunt"
 }
 ```
@@ -238,11 +376,12 @@ code.
   "cost": 50,
   "hp": 100,             // used when enemies destroy blocking towers
   "damage": 20,
-  "range": 2.5,          // in cells
+  "range": 2.5,          // in cells (Manhattan path-distance, see §5.1)
   "fireRatePerSec": 1.5,
-  "targeting": "first",
-  "splashRadius": 0,     // 0 = single target
+  "targeting": "first",  // first | last | closest | strongest
+  "splashRadius": 0,     // cells; 0 = single target, full damage across radius
   "slowPct": 0,          // 0 = no slow
+  "slowDurationMs": 0,   // slow duration; slows refresh, never stack
   "sprite": "basic"
 }
 ```
@@ -334,18 +473,20 @@ src/
 - [ ] Game loads and runs in Chrome, Firefox, Safari (desktop) and mobile Safari
       + Chrome Android.
 - [ ] Player can select a level, place towers to build a maze, and start waves.
-- [ ] Towers can be placed anywhere on empty cells; if a placement blocks every
-      spawn→target path, enemies take the shortest route and destroy blocking
+- [ ] Towers can be placed anywhere on empty cells; if a placement blocks a
+      given spawn's only path to its assigned target (evaluated **per spawn**),
+      the enemies from that spawn take the shortest route and destroy blocking
       towers instead of the placement being rejected.
 - [ ] Enemies spawn, follow the shortest path, and re-route when the maze changes.
 - [ ] Enemies have HP + armor; towers damage them per the documented percentage
       formula; kills award bounty.
 - [ ] Towers have HP; when no path exists, enemies attack/destroy blocking towers
       using the same damage model.
-- [ ] Player can sell a tower for 75% of its accumulated price, reopening the cell.
+- [ ] Player can sell a tower for 75% of its purchase price (rounded to nearest),
+      any time including mid-wave/under attack, reopening the cell.
 - [ ] Enemies reaching the target reduce player lives; 0 lives = loss.
-- [ ] Surviving all waves = win; progress unlocks the next level and is saved
-      locally.
+- [ ] Win is reached when all waves are spawned and no enemies remain on the
+      field (lives > 0); progress unlocks the next level and is saved locally.
 - [ ] Input works with both mouse and touch; UI is responsive across screen
       sizes and DPI.
 - [ ] Core logic unit tests pass; production build is deployable as static files.
@@ -369,7 +510,6 @@ src/
 ## 13. Stretch Goals (post-v1)
 
 - Tower upgrades (selling is a v1 must-have, see §3.2).
-- 8-directional movement with correct corner handling.
 - More enemy abilities (flying that ignores maze, healing, shields).
 - Damage types vs. armor types.
 - Level editor UI.
