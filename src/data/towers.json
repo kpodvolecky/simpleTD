@@ -1,0 +1,58 @@
+[
+  {
+    "id": "basic",
+    "name": "Arrow Tower",
+    "cost": 50,
+    "hp": 100,
+    "damage": 20,
+    "range": 2.5,
+    "fireRatePerSec": 1.5,
+    "targeting": "first",
+    "splashRadius": 0,
+    "slowPct": 0,
+    "slowDurationMs": 0,
+    "sprite": "basic"
+  },
+  {
+    "id": "cannon",
+    "name": "Cannon",
+    "cost": 90,
+    "hp": 140,
+    "damage": 30,
+    "range": 2.0,
+    "fireRatePerSec": 0.7,
+    "targeting": "closest",
+    "splashRadius": 1.5,
+    "slowPct": 0,
+    "slowDurationMs": 0,
+    "sprite": "cannon"
+  },
+  {
+    "id": "frost",
+    "name": "Frost Tower",
+    "cost": 70,
+    "hp": 100,
+    "damage": 8,
+    "range": 2.0,
+    "fireRatePerSec": 1.2,
+    "targeting": "first",
+    "splashRadius": 0,
+    "slowPct": 40,
+    "slowDurationMs": 1500,
+    "sprite": "frost"
+  },
+  {
+    "id": "sniper",
+    "name": "Sniper Tower",
+    "cost": 120,
+    "hp": 90,
+    "damage": 80,
+    "range": 5.0,
+    "fireRatePerSec": 0.6,
+    "targeting": "strongest",
+    "splashRadius": 0,
+    "slowPct": 0,
+    "slowDurationMs": 0,
+    "sprite": "sniper"
+  }
+]

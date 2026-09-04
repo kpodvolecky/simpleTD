@@ -1,0 +1,50 @@
+[
+  {
+    "id": "grunt",
+    "hp": 100,
+    "armor": 5,
+    "speed": 1.5,
+    "bounty": 10,
+    "leakDamage": 1,
+    "attackDamage": 10,
+    "attackRange": 1.0,
+    "fireRatePerSec": 1.0,
+    "sprite": "grunt"
+  },
+  {
+    "id": "runner",
+    "hp": 60,
+    "armor": 0,
+    "speed": 3.0,
+    "bounty": 8,
+    "leakDamage": 1,
+    "attackDamage": 6,
+    "attackRange": 1.0,
+    "fireRatePerSec": 1.5,
+    "sprite": "runner"
+  },
+  {
+    "id": "tank",
+    "hp": 320,
+    "armor": 40,
+    "speed": 0.9,
+    "bounty": 20,
+    "leakDamage": 2,
+    "attackDamage": 20,
+    "attackRange": 1.0,
+    "fireRatePerSec": 0.8,
+    "sprite": "tank"
+  },
+  {
+    "id": "boss",
+    "hp": 1200,
+    "armor": 25,
+    "speed": 0.8,
+    "bounty": 100,
+    "leakDamage": 10,
+    "attackDamage": 40,
+    "attackRange": 1.0,
+    "fireRatePerSec": 1.0,
+    "sprite": "boss"
+  }
+]

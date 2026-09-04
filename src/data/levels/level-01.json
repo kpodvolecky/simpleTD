@@ -1,0 +1,30 @@
+{
+  "id": "level-01",
+  "name": "First Steps",
+  "grid": { "width": 15, "height": 10 },
+  "cellSize": 48,
+  "routes": [{ "spawn": { "x": 0, "y": 5 }, "target": { "x": 14, "y": 5 } }],
+  "blocked": [
+    { "x": 7, "y": 0 },
+    { "x": 7, "y": 1 },
+    { "x": 7, "y": 8 },
+    { "x": 7, "y": 9 }
+  ],
+  "startingCurrency": 220,
+  "startingLives": 20,
+  "waves": [
+    { "groups": [{ "enemyType": "grunt", "count": 8, "intervalMs": 800 }] },
+    {
+      "groups": [
+        { "enemyType": "grunt", "count": 10, "intervalMs": 700 },
+        { "enemyType": "runner", "count": 5, "intervalMs": 600 }
+      ]
+    },
+    {
+      "groups": [
+        { "enemyType": "runner", "count": 12, "intervalMs": 400 },
+        { "enemyType": "tank", "count": 3, "intervalMs": 1500 }
+      ]
+    }
+  ]
+}

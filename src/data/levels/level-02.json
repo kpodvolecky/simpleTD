@@ -1,0 +1,36 @@
+{
+  "id": "level-02",
+  "name": "Crossroads",
+  "grid": { "width": 18, "height": 12 },
+  "cellSize": 44,
+  "routes": [
+    { "spawn": { "x": 0, "y": 2 }, "target": { "x": 17, "y": 9 } },
+    { "spawn": { "x": 0, "y": 9 }, "target": { "x": 17, "y": 2 } }
+  ],
+  "blocked": [
+    { "x": 9, "y": 0 },
+    { "x": 9, "y": 1 },
+    { "x": 9, "y": 10 },
+    { "x": 9, "y": 11 },
+    { "x": 9, "y": 5 },
+    { "x": 9, "y": 6 }
+  ],
+  "startingCurrency": 300,
+  "startingLives": 20,
+  "waves": [
+    { "groups": [{ "enemyType": "grunt", "count": 12, "intervalMs": 600 }] },
+    {
+      "groups": [
+        { "enemyType": "runner", "count": 14, "intervalMs": 350 },
+        { "enemyType": "grunt", "count": 8, "intervalMs": 700 }
+      ]
+    },
+    {
+      "groups": [
+        { "enemyType": "tank", "count": 6, "intervalMs": 1200 },
+        { "enemyType": "grunt", "count": 12, "intervalMs": 500 }
+      ]
+    },
+    { "groups": [{ "enemyType": "boss", "count": 1, "intervalMs": 1000 }] }
+  ]
+}

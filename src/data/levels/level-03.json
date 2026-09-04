@@ -1,0 +1,44 @@
+{
+  "id": "level-03",
+  "name": "The Gauntlet",
+  "grid": { "width": 20, "height": 14 },
+  "cellSize": 40,
+  "routes": [
+    { "spawn": { "x": 0, "y": 0 }, "target": { "x": 19, "y": 13 } },
+    { "spawn": { "x": 0, "y": 13 }, "target": { "x": 19, "y": 0 } },
+    { "spawn": { "x": 0, "y": 7 }, "target": { "x": 19, "y": 7 } }
+  ],
+  "blocked": [
+    { "x": 6, "y": 3 },
+    { "x": 6, "y": 4 },
+    { "x": 6, "y": 5 },
+    { "x": 13, "y": 8 },
+    { "x": 13, "y": 9 },
+    { "x": 13, "y": 10 },
+    { "x": 10, "y": 6 },
+    { "x": 10, "y": 7 }
+  ],
+  "startingCurrency": 360,
+  "startingLives": 25,
+  "waves": [
+    { "groups": [{ "enemyType": "grunt", "count": 16, "intervalMs": 500 }] },
+    {
+      "groups": [
+        { "enemyType": "runner", "count": 20, "intervalMs": 300 },
+        { "enemyType": "tank", "count": 4, "intervalMs": 1400 }
+      ]
+    },
+    {
+      "groups": [
+        { "enemyType": "tank", "count": 10, "intervalMs": 900 },
+        { "enemyType": "runner", "count": 16, "intervalMs": 350 }
+      ]
+    },
+    {
+      "groups": [
+        { "enemyType": "boss", "count": 2, "intervalMs": 4000 },
+        { "enemyType": "grunt", "count": 20, "intervalMs": 400 }
+      ]
+    }
+  ]
+}
