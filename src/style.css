@@ -83,10 +83,109 @@ body {
   cursor: not-allowed;
 }
 
+/* Settings (menu) */
+.settings {
+  width: min(420px, 90vw);
+  margin-top: 20px;
+  padding: 16px 18px;
+  border: 1px solid #24304a;
+  border-radius: 12px;
+  background: var(--panel);
+}
+
+.settings h2 {
+  margin: 0 0 12px;
+  font-size: 18px;
+}
+
+.settings-row {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 15px;
+}
+
+.settings-row input[type='range'] {
+  width: 100%;
+  accent-color: var(--accent);
+}
+
 /* Game */
 #game {
   display: flex;
   flex-direction: column;
+  position: relative;
+}
+
+/* Win/Lose overlay (§8) */
+.overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(5, 8, 16, 0.72);
+  z-index: 10;
+}
+
+.overlay-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 28px 32px;
+  border-radius: 16px;
+  background: var(--panel);
+  border: 1px solid #24304a;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+  min-width: min(360px, 86vw);
+}
+
+.overlay-card.won {
+  border-color: #2ecc71;
+}
+
+.overlay-card.lost {
+  border-color: #e74c3c;
+}
+
+.overlay-icon {
+  font-size: 48px;
+  line-height: 1;
+}
+
+.overlay-card h2 {
+  margin: 0;
+  font-size: 28px;
+  letter-spacing: 1px;
+}
+
+.overlay-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 8px;
+}
+
+.overlay-btn {
+  padding: 12px 18px;
+  border: 1px solid #24304a;
+  border-radius: 10px;
+  background: #1b2438;
+  color: var(--text);
+  cursor: pointer;
+  font-size: 15px;
+}
+
+.overlay-btn:hover {
+  border-color: var(--accent);
+}
+
+.overlay-btn.primary {
+  background: var(--accent);
+  border-color: var(--accent);
+  font-weight: 600;
 }
 
 #board {

@@ -171,14 +171,17 @@ export class Renderer {
     ctx.fillStyle = fill;
     ctx.fillRect(cell.x * cs + 1, cell.y * cs + 1, cs - 2, cs - 2);
 
-    // Warning icon when the placement would block a path (not colour-only, §8).
-    if (wouldBlock) {
-      ctx.fillStyle = '#fff';
-      ctx.font = `${cs * 0.5}px sans-serif`;
-      ctx.textAlign = 'center';
-      ctx.textBaseline = 'middle';
-      ctx.fillText('!', cell.x * cs + cs / 2, cell.y * cs + cs / 2);
-    }
+    // Validity icon (not colour-only, §8): every state carries a distinct glyph
+    // so colourblind players can tell them apart.
+    //   ✓ = placeable, ! = would block a path, ✕ = cannot place here.
+    let icon = '\u2713'; // check mark
+    if (!canPlace) icon = '\u2715'; // cross
+    else if (wouldBlock) icon = '!';
+    ctx.fillStyle = '#fff';
+    ctx.font = `${cs * 0.5}px sans-serif`;
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.fillText(icon, cell.x * cs + cs / 2, cell.y * cs + cs / 2);
 
     // Range preview ring (Manhattan diamond, ceil rule).
     ctx.fillStyle = COLORS.rangeRing;

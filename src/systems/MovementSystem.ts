@@ -46,6 +46,7 @@ export class MovementSystem {
       e.leaked = true;
       e.alive = false;
       state.lives -= e.type.leakDamage;
+      state.emit('leak');
       return;
     }
 

@@ -111,6 +111,7 @@ export class CombatSystem {
   private damageEnemy(state: GameState, tower: Tower, e: Enemy): void {
     const dmg = computeDamage(tower.type.damage, e.type.armor);
     e.hp -= dmg;
+    state.emit('enemyHit');
     // Slow always targets only enemies (§5.1); separate from HP damage.
     if (tower.type.slowPct > 0 && tower.type.slowDurationMs > 0) {
       if (tower.type.slowPct >= e.slowPct) e.slowPct = tower.type.slowPct;
@@ -120,6 +121,7 @@ export class CombatSystem {
       e.hp = 0;
       e.alive = false;
       state.currency += e.bounty; // bounty fixed at spawn (§3.5)
+      state.emit('enemyKilled');
     }
   }
 

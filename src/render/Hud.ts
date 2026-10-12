@@ -105,6 +105,9 @@ export class Hud {
       b.disabled = !!type && !game.state.canAfford(type.cost);
     }
 
+    const over = game.state.status === 'won' || game.state.status === 'lost';
+    this.startBtn.disabled = over;
+
     if (game.state.status === 'won') this.statusEl.textContent = 'YOU WIN! 🎉';
     else if (game.state.status === 'lost') this.statusEl.textContent = 'DEFEAT 💀';
     else {

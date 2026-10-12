@@ -16,6 +16,9 @@ import type {
 
 export type GameStatus = 'building' | 'running' | 'won' | 'lost';
 
+/** Gameplay events emitted by the systems for feedback (sound/UI, §8). */
+export type GameEventType = 'enemyHit' | 'enemyKilled' | 'leak' | 'towerDestroyed';
+
 /**
  * Central mutable game state (§7). Holds the grid, all entities, economy, and
  * cached distance fields. Two kinds of fields are cached:
@@ -44,6 +47,9 @@ export class GameState {
 
   /** True once every wave has been fully spawned (§3.5 win check). */
   allWavesSpawned = false;
+
+  /** Feedback events emitted this tick; drained by the presentation layer (§8). */
+  readonly events: GameEventType[] = [];
 
   private nextEnemyId = 1;
   private nextTowerId = 1;
@@ -118,6 +124,19 @@ export class GameState {
     return this.currency >= cost;
   }
 
+  /** Record a feedback event for the presentation layer (§8). */
+  emit(type: GameEventType): void {
+    this.events.push(type);
+  }
+
+  /** Return and clear all feedback events buffered since the last call. */
+  drainEvents(): GameEventType[] {
+    if (this.events.length === 0) return [];
+    const out = this.events.slice();
+    this.events.length = 0;
+    return out;
+  }
+
   /** Cell occupied by an enemy? Used for the build restriction (§4.3). */
   isCellOccupiedByEnemy(x: number, y: number): boolean {
     for (const e of this.enemies) {
@@ -155,6 +174,7 @@ export class GameState {
   destroyTower(tower: Tower): void {
     if (!tower.alive) return;
     tower.alive = false;
+    this.emit('towerDestroyed');
     this.removeTowerFromGrid(tower);
   }
 
