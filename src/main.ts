@@ -158,6 +158,12 @@ function startLevel(index: number): void {
     },
     () => renderFrame(),
   );
+  // Apply the basic speed (speeds[0]) so the simulation starts at the
+  // configured base multiplier rather than the loop's default of 1.
+  const initialSpeed = balance.speeds[speedIndex];
+  loop.speed = initialSpeed;
+  game.state.speed = initialSpeed;
+  hud.setSpeedLabel(initialSpeed);
   loop.start();
 }
 

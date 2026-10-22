@@ -9,8 +9,11 @@ export const balance = {
   sellRefundRate: 0.75,
   /** Minimum damage floor — every hit deals at least this much (§5). */
   minDamage: 1,
-  /** Supported game-speed multipliers (§8). */
-  speeds: [1, 2] as const,
+  /**
+   * Supported game-speed multipliers (§8). The basic speed (first entry) runs
+   * at 1/4 of the historical base speed; each subsequent step is 2x faster.
+   */
+  speeds: [0.25, 0.5, 1, 2, 4] as const,
 } as const;
 
 /**
