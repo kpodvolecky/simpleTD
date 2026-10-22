@@ -31,6 +31,6 @@
         { "enemyType": "grunt", "count": 12, "intervalMs": 500 }
       ]
     },
-    { "groups": [{ "enemyType": "boss", "count": 1, "intervalMs": 1000 }] }
+    { "hpMultiplier": 2.0, "groups": [{ "enemyType": "boss", "count": 1, "intervalMs": 1000 }] }
   ]
 }
