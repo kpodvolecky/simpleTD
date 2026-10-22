@@ -7,8 +7,9 @@
   "blocked": [
     { "x": 7, "y": 0 },
     { "x": 7, "y": 1 },
-    { "x": 7, "y": 8 },
-    { "x": 7, "y": 9 }
+    { "x": 7, "y": 2 },
+    { "x": 7, "y": 3 },
+    { "x": 7, "y": 4 }
   ],
   "startingCurrency": 220,
   "startingLives": 20,
@@ -23,6 +24,45 @@
     {
       "groups": [
         { "enemyType": "runner", "count": 12, "intervalMs": 400 },
+        { "enemyType": "tank", "count": 3, "intervalMs": 1500 }
+      ]
+    },
+    {
+      "groups": [
+        { "enemyType": "tank", "count": 3, "intervalMs": 1000 }
+      ]
+    },
+    {
+      "groups": [
+        { "enemyType": "grunt", "count": 10, "intervalMs": 400 },
+        { "enemyType": "runner", "count": 5, "intervalMs": 500 }
+      ]
+    },
+    {
+      "groups": [
+        { "enemyType": "runner", "count": 12, "intervalMs": 400 },
+        { "enemyType": "tank", "count": 3, "intervalMs": 1500 }
+      ]
+    },
+    {
+      "groups": [
+        { "enemyType": "tank", "count": 3, "intervalMs": 1500 }
+      ]
+    },
+    {
+      "groups": [
+        { "enemyType": "grunt", "count": 10, "intervalMs": 700 },
+        { "enemyType": "runner", "count": 5, "intervalMs": 600 }
+      ]
+    },
+    {
+      "groups": [
+        { "enemyType": "runner", "count": 12, "intervalMs": 400 },
+        { "enemyType": "tank", "count": 3, "intervalMs": 1500 }
+      ]
+    },
+    {
+      "groups": [
         { "enemyType": "tank", "count": 3, "intervalMs": 1500 }
       ]
     }

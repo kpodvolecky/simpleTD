@@ -2,7 +2,7 @@
 
 export const balance = {
   /** Fixed simulation timestep in seconds (60 Hz, §4.3). */
-  fixedDt: 1 / 60,
+  fixedDt: 1 / 30,
   /** Auto-start countdown before the next wave, in ms (§3.5). */
   waveCountdownMs: 10_000,
   /** Fraction of the purchase price returned when selling a tower (§3.2). */
@@ -10,7 +10,7 @@ export const balance = {
   /** Minimum damage floor — every hit deals at least this much (§5). */
   minDamage: 1,
   /** Supported game-speed multipliers (§8). */
-  speeds: [1, 2] as const,
+  speeds: [0.1, 0.5, 1, 2] as const,
 } as const;
 
 /**
