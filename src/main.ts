@@ -25,6 +25,7 @@ let game: Game | null = null;
 let renderer: Renderer | null = null;
 let hud: Hud | null = null;
 let loop: GameLoop | null = null;
+let input: InputController | null = null;
 let hover: Vec2 | null = null;
 let paused = false;
 let speedIndex = 0;
@@ -126,7 +127,10 @@ function startLevel(index: number): void {
     onExit: showMenu,
   });
 
-  const input = new InputController(canvas, game, renderer, {
+  // Dispose any controller from a previously played level so its stale canvas
+  // listeners (bound to the old renderer transform) don't place phantom towers.
+  input?.dispose();
+  input = new InputController(canvas, game, renderer, {
     getSelectedTower: () => hud?.selectedTowerId ?? null,
     onHover: (cell) => (hover = cell),
     onPlace: (cell) => {
