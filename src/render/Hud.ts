@@ -102,7 +102,10 @@ export class Hud {
 
     for (const [id, b] of this.paletteButtons) {
       const type = game.state.towerTypes.get(id);
-      b.disabled = !!type && !game.state.canAfford(type.cost);
+      // Keep the currently selected tower enabled so it can always be
+      // deselected (e.g. to switch to sell mode) even when unaffordable.
+      b.disabled =
+        id !== this.selectedTower && !!type && !game.state.canAfford(type.cost);
     }
 
     const over = game.state.status === 'won' || game.state.status === 'lost';
