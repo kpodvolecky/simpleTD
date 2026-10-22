@@ -1,5 +1,6 @@
 import { Game } from '../Game';
 import type { TowerTypeData } from '../types';
+import { drawTowerShape } from './towerShapes';
 
 export interface HudCallbacks {
   onSelectTower: (towerId: string | null) => void;
@@ -65,7 +66,13 @@ export class Hud {
     for (const t of this.towerTypes) {
       const b = document.createElement('button');
       b.className = 'palette-btn';
-      b.innerHTML = `<strong>${t.name}</strong><span>💰${t.cost}</span>`;
+      b.appendChild(towerIcon(t.sprite));
+      const name = document.createElement('strong');
+      name.textContent = t.name;
+      b.appendChild(name);
+      const cost = document.createElement('span');
+      cost.textContent = `💰${t.cost}`;
+      b.appendChild(cost);
       b.addEventListener('click', () => this.select(t.id));
       palette.appendChild(b);
       this.paletteButtons.set(t.id, b);
@@ -119,6 +126,24 @@ export class Hud {
         cd !== null ? `Next wave in ${Math.ceil(cd / 1000)}s` : '';
     }
   }
+}
+
+/** Build a small canvas icon rendering the tower's shape for a palette button. */
+function towerIcon(sprite: string): HTMLCanvasElement {
+  const px = 28;
+  const dpr = window.devicePixelRatio || 1;
+  const canvas = document.createElement('canvas');
+  canvas.className = 'palette-icon';
+  canvas.width = Math.round(px * dpr);
+  canvas.height = Math.round(px * dpr);
+  canvas.style.width = `${px}px`;
+  canvas.style.height = `${px}px`;
+  const ctx = canvas.getContext('2d');
+  if (ctx) {
+    ctx.scale(dpr, dpr);
+    drawTowerShape(ctx, sprite, px / 2, px / 2, px * 0.42, '#4b7bec');
+  }
+  return canvas;
 }
 
 function stat(parent: HTMLElement, icon: string, cls: string): HTMLElement {

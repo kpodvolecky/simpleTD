@@ -1,6 +1,7 @@
 import { Game } from '../Game';
 import type { Vec2 } from '../types';
 import { inRange } from '../config/balance';
+import { drawTowerShape } from './towerShapes';
 
 interface HoverState {
   cell: Vec2 | null;
@@ -117,10 +118,7 @@ export class Renderer {
       if (!t.alive) continue;
       const cx = t.cell.x * cs + cs / 2;
       const cy = t.cell.y * cs + cs / 2;
-      ctx.fillStyle = COLORS.towerBody;
-      ctx.beginPath();
-      ctx.arc(cx, cy, cs * 0.32, 0, Math.PI * 2);
-      ctx.fill();
+      drawTowerShape(ctx, t.type.sprite, cx, cy, cs * 0.32, COLORS.towerBody);
       // Tower HP bar (only if damaged).
       if (t.hp < t.type.hp) {
         this.drawBar(cx - cs * 0.35, cy - cs * 0.45, cs * 0.7, cs * 0.08, t.hp / t.type.hp);
