@@ -93,6 +93,19 @@ export function validateLevel(level: LevelData): void {
     typeByCell.set(k, 'target');
   }
 
+  // --- Waves: per-wave HP multipliers must be positive (§3.5) ---------------
+  level.waves.forEach((wave, i) => {
+    if (
+      wave.hpMultiplier !== undefined &&
+      (!(wave.hpMultiplier > 0) || !Number.isFinite(wave.hpMultiplier))
+    ) {
+      throw new LevelValidationError(
+        id,
+        `wave ${i} has a non-positive hpMultiplier (${wave.hpMultiplier})`,
+      );
+    }
+  });
+
   // --- Build a grid and check reachability (§3.1) ---------------------------
   const grid = Grid.fromLevel(level);
 

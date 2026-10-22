@@ -7,6 +7,8 @@ interface GroupSpawner {
   intervalMs: number;
   /** ms until the next unit of this group spawns. */
   timerMs: number;
+  /** Cumulative HP multiplier for enemies released by this wave (§3.5). */
+  hpMultiplier: number;
 }
 
 /**
@@ -19,6 +21,12 @@ export class SpawnSystem {
   private readonly active: GroupSpawner[] = [];
   private countdownMs = balance.waveCountdownMs;
   private routeCursor = 0;
+  /**
+   * Running HP multiplier accumulated across released waves (§3.5). The first
+   * wave spawns at base HP (1); each subsequent wave multiplies this by its own
+   * `hpMultiplier` (or `balance.defaultWaveHpMultiplier` when unset).
+   */
+  private hpMultiplier = 1;
 
   get currentWaveNumber(): number {
     return this.nextWaveIndex;
@@ -41,12 +49,18 @@ export class SpawnSystem {
   startNextWave(state: GameState): void {
     if (this.nextWaveIndex >= state.level.waves.length) return;
     const wave = state.level.waves[this.nextWaveIndex];
+    // Grow HP relative to the previous wave; the first wave stays at base HP.
+    if (this.nextWaveIndex > 0) {
+      const factor = wave.hpMultiplier ?? balance.defaultWaveHpMultiplier;
+      this.hpMultiplier *= factor;
+    }
     for (const g of wave.groups) {
       this.active.push({
         enemyType: g.enemyType,
         remaining: g.count,
         intervalMs: g.intervalMs,
         timerMs: 0,
+        hpMultiplier: this.hpMultiplier,
       });
     }
     this.nextWaveIndex++;
@@ -72,7 +86,7 @@ export class SpawnSystem {
         if (type) {
           const routeIndex = this.routeCursor % state.level.routes.length;
           this.routeCursor++;
-          state.spawnEnemy(type, routeIndex);
+          state.spawnEnemy(type, routeIndex, g.hpMultiplier);
         }
         g.remaining--;
         g.timerMs += g.intervalMs;

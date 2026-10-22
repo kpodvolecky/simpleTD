@@ -15,6 +15,8 @@ export class Enemy {
   readonly spawnOrder: number;
 
   hp: number;
+  /** Maximum HP after any per-wave scaling; used for HP-bar rendering. */
+  readonly maxHp: number;
   readonly bounty: number;
 
   /** The cell the enemy currently occupies (its logical position). */
@@ -43,12 +45,14 @@ export class Enemy {
     type: EnemyTypeData,
     route: Route,
     spawnOrder: number,
+    hpMultiplier = 1,
   ) {
     this.id = id;
     this.type = type;
     this.route = route;
     this.spawnOrder = spawnOrder;
-    this.hp = type.hp;
+    this.maxHp = type.hp * hpMultiplier;
+    this.hp = this.maxHp;
     this.bounty = type.bounty;
     this.cell = { x: route.spawn.x, y: route.spawn.y };
     this.nextCell = { x: route.spawn.x, y: route.spawn.y };

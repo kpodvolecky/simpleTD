@@ -26,6 +26,13 @@ export interface EnemyGroup {
 
 export interface Wave {
   groups: EnemyGroup[];
+  /**
+   * Optional per-wave HP multiplier applied relative to the previous wave
+   * (§3.5). Enemy HP grows cumulatively across waves: the effective multiplier
+   * for a wave is the product of this factor and all preceding waves' factors.
+   * When omitted, `balance.defaultWaveHpMultiplier` is used instead.
+   */
+  hpMultiplier?: number;
 }
 
 export interface LevelData {

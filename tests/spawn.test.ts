@@ -64,6 +64,32 @@ describe('SpawnSystem scheduling (§3.5)', () => {
     expect(s.enemies.length).toBe(3);
   });
 
+  it('keeps the first wave at base HP and grows later waves per the default multiplier', () => {
+    const s = state();
+    const spawn = new SpawnSystem();
+    spawn.startNextWave(s); // wave 0: base HP
+    spawn.update(s, 0);
+    expect(s.enemies[0].maxHp).toBeCloseTo(grunt.hp);
+    expect(s.enemies[0].hp).toBeCloseTo(grunt.hp);
+    spawn.startNextWave(s); // wave 1: scaled by the default multiplier
+    spawn.update(s, 0);
+    expect(s.enemies[1].maxHp).toBeCloseTo(
+      grunt.hp * balance.defaultWaveHpMultiplier,
+    );
+  });
+
+  it('honours an explicit per-wave hpMultiplier cumulatively', () => {
+    const level = twoWaveLevel();
+    level.waves[1].hpMultiplier = 3;
+    const s = new GameState(level, enemyDefs, []);
+    const spawn = new SpawnSystem();
+    spawn.startNextWave(s); // wave 0: base
+    spawn.update(s, 0);
+    spawn.startNextWave(s); // wave 1: x3 relative to wave 0
+    spawn.update(s, 0);
+    expect(s.enemies[1].maxHp).toBeCloseTo(grunt.hp * 3);
+  });
+
   it('overlaps waves: enemies accumulate when the next wave starts early', () => {
     const s = state();
     const spawn = new SpawnSystem();

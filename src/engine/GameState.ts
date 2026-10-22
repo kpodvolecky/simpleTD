@@ -113,9 +113,19 @@ export class GameState {
 
   // --- Entities & economy ---------------------------------------------------
 
-  spawnEnemy(type: EnemyTypeData, routeIndex: number): Enemy {
+  spawnEnemy(
+    type: EnemyTypeData,
+    routeIndex: number,
+    hpMultiplier = 1,
+  ): Enemy {
     const route = this.level.routes[routeIndex];
-    const e = new Enemy(this.nextEnemyId++, type, route, this.spawnCounter++);
+    const e = new Enemy(
+      this.nextEnemyId++,
+      type,
+      route,
+      this.spawnCounter++,
+      hpMultiplier,
+    );
     this.enemies.push(e);
     return e;
   }

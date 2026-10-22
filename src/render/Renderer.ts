@@ -136,7 +136,7 @@ export class Renderer {
       ctx.beginPath();
       ctx.arc(cx, cy, cs * 0.26, 0, Math.PI * 2);
       ctx.fill();
-      this.drawBar(cx - cs * 0.3, cy - cs * 0.4, cs * 0.6, cs * 0.07, e.hp / e.type.hp);
+      this.drawBar(cx - cs * 0.3, cy - cs * 0.4, cs * 0.6, cs * 0.07, e.hp / e.maxHp);
     }
 
     // Projectiles.

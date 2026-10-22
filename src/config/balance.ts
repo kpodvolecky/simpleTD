@@ -5,6 +5,13 @@ export const balance = {
   fixedDt: 1 / 60,
   /** Auto-start countdown before the next wave, in ms (§3.5). */
   waveCountdownMs: 10_000,
+  /**
+   * Default HP growth factor applied to each wave relative to the previous one
+   * (§3.5), used when a wave does not specify its own `hpMultiplier`. The first
+   * wave always spawns at base HP (effective multiplier 1); every subsequent
+   * wave multiplies the running HP multiplier by this factor.
+   */
+  defaultWaveHpMultiplier: 1.2,
   /** Fraction of the purchase price returned when selling a tower (§3.2). */
   sellRefundRate: 0.75,
   /** Minimum damage floor — every hit deals at least this much (§5). */
