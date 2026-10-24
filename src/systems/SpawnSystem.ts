@@ -9,8 +9,8 @@ interface GroupSpawner {
   timerMs: number;
   /** Cumulative HP multiplier for enemies released by this wave (§3.5). */
   hpMultiplier: number;
-  /** Speed multiplier applied to this group's enemies. */
-  speedMultiplier: number;
+  /** Speed multiplier for this wave's enemies. */
+  speed: number;
 }
 
 /**
@@ -24,18 +24,19 @@ export class SpawnSystem {
   private countdownMs = balance.waveCountdownMs;
   private routeCursor = 0;
   /**
+   * Speed for the current wave being spawned.
+   * On the first wave, this equals the level's base speed.
+   * On subsequent waves, this equals the wave's waveSpeed (if any).
+   * Reset to level.baseSpeed whenever a new level is loaded.
+   */
+  private waveSpeed: number = 1;
+  /**
    * Running HP multiplier accumulated across released waves (§3.5). The first
    * wave spawns at base HP (1); each subsequent wave multiplies this by its own
    * `hpMultiplier` (or `balance.defaultWaveHpMultiplier` when unset).
    * Reset to 1 whenever a new level is loaded.
    */
   private hpMultiplier = 1;
-  /**
-   * Running speed multiplier accumulated across released waves. The first
-   * wave spawns at base speed (1); each subsequent wave multiplies this by its own
-   * `speedMultiplier`. Reset to 1 whenever a new level is loaded.
-   */
-  private speedMultiplier = 1;
 
   get currentWaveNumber(): number {
     return this.nextWaveIndex;
@@ -58,15 +59,12 @@ export class SpawnSystem {
   startNextWave(state: GameState): void {
     if (this.nextWaveIndex >= state.level.waves.length) return;
     const wave = state.level.waves[this.nextWaveIndex];
-    // Reset multipliers when starting a new level
+    // Reset HP multiplier and wave speed when starting a new level
     this.hpMultiplier = 1;
-    this.speedMultiplier = 1;
-    // Grow multipliers relative to the previous wave; the first wave stays at base.
+    this.waveSpeed = state.level.speed ?? 1;
+    // HP grows across waves, speed is independent per wave
     if (this.nextWaveIndex > 0) {
-      const hpFactor = wave.hpMultiplier ?? balance.defaultWaveHpMultiplier;
-      const speedFactor = wave.speedMultiplier ?? 1;
-      this.hpMultiplier *= hpFactor;
-      this.speedMultiplier *= speedFactor;
+      this.hpMultiplier *= (wave.hpMultiplier ?? balance.defaultWaveHpMultiplier);
     }
     for (const g of wave.groups) {
       this.active.push({
@@ -75,7 +73,7 @@ export class SpawnSystem {
         intervalMs: g.intervalMs,
         timerMs: 0,
         hpMultiplier: this.hpMultiplier,
-        speedMultiplier: this.speedMultiplier,
+        speed: wave.speed ?? this.waveSpeed,
       });
     }
     this.nextWaveIndex++;
@@ -101,7 +99,7 @@ export class SpawnSystem {
         if (type) {
           const routeIndex = this.routeCursor % state.level.routes.length;
           this.routeCursor++;
-          state.spawnEnemy(type, routeIndex, g.hpMultiplier, g.speedMultiplier);
+          state.spawnEnemy(type, routeIndex, g.hpMultiplier, (state.level.speed ?? 1) * g.speed);
         }
         g.remaining--;
         g.timerMs += g.intervalMs;

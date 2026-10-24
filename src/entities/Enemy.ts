@@ -48,7 +48,7 @@ export class Enemy {
     route: Route,
     spawnOrder: number,
     hpMultiplier = 1,
-    speedMultiplier = 1,
+    speed = 1,
   ) {
     this.id = id;
     this.type = type;
@@ -59,8 +59,11 @@ export class Enemy {
     this.bounty = type.bounty;
     this.cell = { x: route.spawn.x, y: route.spawn.y };
     this.nextCell = { x: route.spawn.x, y: route.spawn.y };
-    /** Base speed scaled by the given multiplier; this type's base speed is always used as anchor. */
-    this.targetSpeed = type.speed * speedMultiplier;
+    /**
+     * Calculated speed: enemyType.baseSpeed * levelSpeed * waveSpeed.
+     * No cumulative effect between waves within the same level.
+     */
+    this.targetSpeed = type.speed * speed;
   }
 
   /** True when sitting exactly on a cell boundary (ready to decide). */

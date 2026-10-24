@@ -34,11 +34,10 @@ export interface Wave {
    */
   hpMultiplier?: number;
   /**
-   * Optional per-wave speed multiplier applied relative to the previous wave.
-   * Enemy speed grows cumulatively across waves; when omitted, 1 is used.
-   * Reset to 1 whenever a new level is loaded.
+   * Optional per-wave speed factor. Enemy speed is multiplied by this factor.
+   * When omitted, no speed scaling is applied for this wave.
    */
-  speedMultiplier?: number;
+  speed?: number;
 }
 
 export interface LevelData {
@@ -51,6 +50,8 @@ export interface LevelData {
   blocked: Vec2[];
   startingCurrency: number;
   startingLives: number;
+  /** Base speed for all waves in this level. When omitted, 1 is used. */
+  speed?: number;
   waves: Wave[];
 }
 

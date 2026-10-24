@@ -17,7 +17,6 @@
   ],
   "startingCurrency": 300,
   "startingLives": 20,
-  "speed": 1,
   "waves": [
     { "groups": [{ "enemyType": "grunt", "count": 12, "intervalMs": 600 }] },
     {
@@ -32,6 +31,6 @@
         { "enemyType": "grunt", "count": 12, "intervalMs": 500 }
       ]
     },
-    { "speed": 1.5, "groups": [{ "enemyType": "boss", "count": 1, "intervalMs": 1000 }] }
+    { "waveSpeed": 1.5, "groups": [{ "enemyType": "boss", "count": 1, "intervalMs": 1000 }] }
   ]
 }
