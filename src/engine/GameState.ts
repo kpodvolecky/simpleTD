@@ -117,6 +117,7 @@ export class GameState {
     type: EnemyTypeData,
     routeIndex: number,
     hpMultiplier = 1,
+    speedMultiplier = 1,
   ): Enemy {
     const route = this.level.routes[routeIndex];
     const e = new Enemy(
@@ -125,6 +126,7 @@ export class GameState {
       route,
       this.spawnCounter++,
       hpMultiplier,
+      speedMultiplier,
     );
     this.enemies.push(e);
     return e;

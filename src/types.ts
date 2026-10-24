@@ -33,6 +33,12 @@ export interface Wave {
    * When omitted, `balance.defaultWaveHpMultiplier` is used instead.
    */
   hpMultiplier?: number;
+  /**
+   * Optional per-wave speed multiplier applied relative to the previous wave.
+   * Enemy speed grows cumulatively across waves; when omitted, 1 is used.
+   * Reset to 1 whenever a new level is loaded.
+   */
+  speedMultiplier?: number;
 }
 
 export interface LevelData {
