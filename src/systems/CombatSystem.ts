@@ -91,7 +91,7 @@ export class CombatSystem {
   private fireAt(state: GameState, tower: Tower, primary: Enemy): void {
     state.projectiles.obtain(
       { x: tower.cell.x, y: tower.cell.y },
-      { x: primary.cell.x, y: primary.cell.y },
+      primary.interpolatedPosition(),
     );
 
     const splash = tower.type.splashRadius;

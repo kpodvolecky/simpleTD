@@ -71,6 +71,13 @@ export class Enemy {
     return this.cell.x === this.nextCell.x && this.cell.y === this.nextCell.y;
   }
 
+  /** Current interpolated position with sub-cell precision for targeting. */
+  interpolatedPosition(): Vec2 {
+    const ix = this.cell.x + (this.nextCell.x - this.cell.x) * this.progress;
+    const iy = this.cell.y + (this.nextCell.y - this.cell.y) * this.progress;
+    return { x: ix, y: iy };
+  }
+
   /** Current effective speed in cells/sec after applying any active slow. */
   effectiveSpeed(): number {
     const factor = this.slowRemainingMs > 0 ? 1 - this.slowPct / 100 : 1;
