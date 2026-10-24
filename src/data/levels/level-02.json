@@ -19,18 +19,84 @@
   "startingLives": 20,
   "waves": [
     { "groups": [{ "enemyType": "grunt", "count": 12, "intervalMs": 600 }] },
-    {
-      "groups": [
-        { "enemyType": "runner", "count": 14, "intervalMs": 350 },
-        { "enemyType": "grunt", "count": 8, "intervalMs": 700 }
-      ]
-    },
-    {
-      "groups": [
-        { "enemyType": "tank", "count": 6, "intervalMs": 1200 },
-        { "enemyType": "grunt", "count": 12, "intervalMs": 500 }
-      ]
-    },
-    { "waveSpeed": 1.5, "groups": [{ "enemyType": "boss", "count": 1, "intervalMs": 1000 }] }
+    { "groups": [{ "enemyType": "runner", "count": 5, "intervalMs": 600 }] },
+    { "groups": [{ "enemyType": "tank", "count": 3, "intervalMs": 1500 }] },
+    { "groups": [
+        { "enemyType": "runner", "count": 2, "intervalMs": 600 },
+        { "enemyType": "tank", "count": 2, "intervalMs": 1500 }
+      ] },
+    { "groups": [{ "enemyType": "boss", "count": 1, "intervalMs": 2000 }] },
+    { "groups": [{ "enemyType": "grunt", "count": 13, "intervalMs": 580 }] },
+    { "groups": [{ "enemyType": "runner", "count": 6, "intervalMs": 570 }] },
+    { "groups": [{ "enemyType": "tank", "count": 4, "intervalMs": 1450 }] },
+    { "groups": [
+        { "enemyType": "runner", "count": 3, "intervalMs": 600 },
+        { "enemyType": "tank", "count": 2, "intervalMs": 1450 }
+      ] },
+    { "groups": [{ "enemyType": "boss", "count": 2, "intervalMs": 1950 }] },
+    { "groups": [{ "enemyType": "grunt", "count": 14, "intervalMs": 560 }] },
+    { "groups": [{ "enemyType": "runner", "count": 7, "intervalMs": 550 }] },
+    { "groups": [{ "enemyType": "tank", "count": 5, "intervalMs": 1400 }] },
+    { "groups": [
+        { "enemyType": "runner", "count": 3, "intervalMs": 590 },
+        { "enemyType": "tank", "count": 3, "intervalMs": 1400 }
+      ] },
+    { "groups": [{ "enemyType": "boss", "count": 3, "intervalMs": 1900 }] },
+    { "groups": [{ "enemyType": "grunt", "count": 15, "intervalMs": 540 }] },
+    { "groups": [{ "enemyType": "runner", "count": 8, "intervalMs": 530 }] },
+    { "groups": [{ "enemyType": "tank", "count": 6, "intervalMs": 1350 }] },
+    { "groups": [
+        { "enemyType": "runner", "count": 3, "intervalMs": 580 },
+        { "enemyType": "tank", "count": 4, "intervalMs": 1350 }
+      ] },
+    { "groups": [{ "enemyType": "boss", "count": 4, "intervalMs": 1850 }] },
+    { "groups": [{ "enemyType": "grunt", "count": 16, "intervalMs": 520 }] },
+    { "groups": [{ "enemyType": "runner", "count": 9, "intervalMs": 510 }] },
+    { "groups": [{ "enemyType": "tank", "count": 7, "intervalMs": 1300 }] },
+    { "groups": [
+        { "enemyType": "runner", "count": 4, "intervalMs": 570 },
+        { "enemyType": "tank", "count": 4, "intervalMs": 1300 }
+      ] },
+    { "groups": [{ "enemyType": "boss", "count": 5, "intervalMs": 1800 }] },
+    { "groups": [{ "enemyType": "grunt", "count": 17, "intervalMs": 500 }] },
+    { "groups": [{ "enemyType": "runner", "count": 10, "intervalMs": 490 }] },
+    { "groups": [{ "enemyType": "tank", "count": 8, "intervalMs": 1250 }] },
+    { "groups": [
+        { "enemyType": "runner", "count": 4, "intervalMs": 560 },
+        { "enemyType": "tank", "count": 5, "intervalMs": 1250 }
+      ] },
+    { "groups": [{ "enemyType": "boss", "count": 6, "intervalMs": 1750 }] },
+    { "groups": [{ "enemyType": "grunt", "count": 18, "intervalMs": 480 }] },
+    { "groups": [{ "enemyType": "runner", "count": 11, "intervalMs": 470 }] },
+    { "groups": [{ "enemyType": "tank", "count": 9, "intervalMs": 1200 }] },
+    { "groups": [
+        { "enemyType": "runner", "count": 4, "intervalMs": 550 },
+        { "enemyType": "tank", "count": 6, "intervalMs": 1200 }
+      ] },
+    { "groups": [{ "enemyType": "boss", "count": 7, "intervalMs": 1700 }] },
+    { "groups": [{ "enemyType": "grunt", "count": 19, "intervalMs": 460 }] },
+    { "groups": [{ "enemyType": "runner", "count": 12, "intervalMs": 450 }] },
+    { "groups": [{ "enemyType": "tank", "count": 10, "intervalMs": 1150 }] },
+    { "groups": [
+        { "enemyType": "runner", "count": 5, "intervalMs": 540 },
+        { "enemyType": "tank", "count": 6, "intervalMs": 1150 }
+      ] },
+    { "groups": [{ "enemyType": "boss", "count": 8, "intervalMs": 1650 }] },
+    { "groups": [{ "enemyType": "grunt", "count": 20, "intervalMs": 440 }] },
+    { "groups": [{ "enemyType": "runner", "count": 13, "intervalMs": 430 }] },
+    { "groups": [{ "enemyType": "tank", "count": 11, "intervalMs": 1100 }] },
+    { "groups": [
+        { "enemyType": "runner", "count": 5, "intervalMs": 530 },
+        { "enemyType": "tank", "count": 7, "intervalMs": 1100 }
+      ] },
+    { "groups": [{ "enemyType": "boss", "count": 9, "intervalMs": 1600 }] },
+    { "groups": [{ "enemyType": "grunt", "count": 21, "intervalMs": 420 }] },
+    { "groups": [{ "enemyType": "runner", "count": 14, "intervalMs": 410 }] },
+    { "groups": [{ "enemyType": "tank", "count": 12, "intervalMs": 1050 }] },
+    { "groups": [
+        { "enemyType": "runner", "count": 5, "intervalMs": 520 },
+        { "enemyType": "tank", "count": 8, "intervalMs": 1050 }
+      ] },
+    { "groups": [{ "enemyType": "boss", "count": 10, "intervalMs": 1550 }] }
   ]
 }
