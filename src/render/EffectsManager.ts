@@ -113,8 +113,9 @@ export class EffectsManager {
 
   /** Check if an enemy is currently blinking (blinkCount === 1). */
   isEnemyBlinking(enemyId: number): boolean {
+    const now = performance.now();
     for (const blink of this.enemyBlinks) {
-      if (blink.enemyId === enemyId && blink.blinkCount === 1) {
+      if (blink.enemyId === enemyId && now - blink.createdAt < 500) {
         return true;
       }
     }
