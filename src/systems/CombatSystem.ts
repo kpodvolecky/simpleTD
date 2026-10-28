@@ -117,7 +117,7 @@ export class CombatSystem {
     e.hp -= dmg;
     state.emit('enemyHit');
     if (state.damageNumbersEnabled) {
-      this.effects.createDamageNumber(e.cell.x + 0.5, e.cell.y - 0.2, dmg);
+      this.effects.createDamageNumber(e.id, dmg);
     }
 
     // Visual effects based on tower type (§6)

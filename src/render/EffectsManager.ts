@@ -32,8 +32,7 @@ interface EnemyBlinkEffect {
 
 interface DamageNumberEffect {
   type: EffectType.DAMAGE_NUMBER;
-  x: number;
-  y: number;
+  enemyId: number;
   amount: number;
   createdAt: number;
 }
@@ -86,11 +85,10 @@ export class EffectsManager {
   }
 
   /** Create a damage number effect above an enemy. */
-  createDamageNumber(x: number, y: number, amount: number): void {
+  createDamageNumber(enemyId: number, amount: number): void {
     this.damageNumbers.push({
       type: EffectType.DAMAGE_NUMBER,
-      x,
-      y,
+      enemyId,
       amount,
       createdAt: performance.now(),
     });

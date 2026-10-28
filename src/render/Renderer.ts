@@ -157,6 +157,10 @@ export class Renderer {
 
     // Damage numbers.
     for (const dn of game.effects.getState().damageNumbers) {
+      const enemy = game.state.enemies.find(e => e.id === dn.enemyId);
+      if (!enemy || !enemy.alive) continue;
+      const ix = enemy.cell.x + (enemy.nextCell.x - enemy.cell.x) * enemy.progress;
+      const iy = enemy.cell.y + (enemy.nextCell.y - enemy.cell.y) * enemy.progress;
       const age = performance.now() - dn.createdAt;
       let alpha = 1;
       if (age > 3000) alpha = Math.max(0, 1 - (age - 3000) / 1000);
@@ -165,7 +169,7 @@ export class Renderer {
       ctx.fillStyle = 'red';
       ctx.font = 'bold 12px sans-serif';
       ctx.textAlign = 'center';
-      ctx.fillText(String(dn.amount), dn.x * cs, (dn.y + yOff) * cs);
+      ctx.fillText(String(dn.amount), ix * cs + cs/2, (iy + yOff) * cs);
     }
     ctx.globalAlpha = 1;
 
