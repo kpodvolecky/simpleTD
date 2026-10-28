@@ -1,0 +1,2933 @@
+{
+    "object": "list",
+    "data": [
+        {
+            "id": "mlx-community/MiniMax-M2.7-4bit",
+            "object": "model",
+            "created": 1788638821,
+            "owned_by": "exo",
+            "hugging_face_id": "mlx-community/MiniMax-M2.7-4bit",
+            "name": "MiniMax-M2.7-4bit",
+            "description": "",
+            "context_length": 196608,
+            "tags": [],
+            "storage_size_megabytes": 122721,
+            "supports_tensor": true,
+            "tasks": [
+                "TextGeneration"
+            ],
+            "is_custom": false,
+            "family": "minimax",
+            "quantization": "4bit",
+            "base_model": "MiniMax M2.7",
+            "capabilities": [
+                "text",
+                "thinking"
+            ]
+        },
+        {
+            "id": "mlx-community/Qwen3-Coder-480B-A35B-Instruct-4bit",
+            "object": "model",
+            "created": 1788638821,
+            "owned_by": "exo",
+            "hugging_face_id": "mlx-community/Qwen3-Coder-480B-A35B-Instruct-4bit",
+            "name": "Qwen3-Coder-480B-A35B-Instruct-4bit",
+            "description": "",
+            "context_length": 262144,
+            "tags": [],
+            "storage_size_megabytes": 276480,
+            "supports_tensor": true,
+            "tasks": [
+                "TextGeneration"
+            ],
+            "is_custom": false,
+            "family": "qwen",
+            "quantization": "4bit",
+            "base_model": "Qwen3 Coder 480B",
+            "capabilities": [
+                "text",
+                "code"
+            ]
+        },
+        {
+            "id": "mlx-community/Qwen3.5-122B-A10B-4bit",
+            "object": "model",
+            "created": 1788638821,
+            "owned_by": "exo",
+            "hugging_face_id": "mlx-community/Qwen3.5-122B-A10B-4bit",
+            "name": "Qwen3.5-122B-A10B-4bit",
+            "description": "",
+            "context_length": 262144,
+            "tags": [],
+            "storage_size_megabytes": 66369,
+            "supports_tensor": true,
+            "tasks": [
+                "TextGeneration"
+            ],
+            "is_custom": false,
+            "family": "qwen",
+            "quantization": "4bit",
+            "base_model": "Qwen3.5 122B A10B",
+            "capabilities": [
+                "text",
+                "thinking",
+                "thinking_toggle",
+                "vision"
+            ]
+        },
+        {
+            "id": "mlx-community/gemma-4-26b-a4b-it-6bit",
+            "object": "model",
+            "created": 1788638821,
+            "owned_by": "exo",
+            "hugging_face_id": "mlx-community/gemma-4-26b-a4b-it-6bit",
+            "name": "gemma-4-26b-a4b-it-6bit",
+            "description": "",
+            "context_length": 262144,
+            "tags": [],
+            "storage_size_megabytes": 20772,
+            "supports_tensor": false,
+            "tasks": [
+                "TextGeneration"
+            ],
+            "is_custom": false,
+            "family": "gemma",
+            "quantization": "6bit",
+            "base_model": "Gemma 4 26B A4B",
+            "capabilities": [
+                "text",
+                "vision"
+            ]
+        },
+        {
+            "id": "mlx-community/Qwen3.6-35B-A3B-bf16",
+            "object": "model",
+            "created": 1788638821,
+            "owned_by": "exo",
+            "hugging_face_id": "mlx-community/Qwen3.6-35B-A3B-bf16",
+            "name": "Qwen3.6-35B-A3B-bf16",
+            "description": "",
+            "context_length": 262144,
+            "tags": [],
+            "storage_size_megabytes": 66962,
+            "supports_tensor": true,
+            "tasks": [
+                "TextGeneration"
+            ],
+            "is_custom": false,
+            "family": "qwen",
+            "quantization": "bf16",
+            "base_model": "Qwen3.6 35B A3B",
+            "capabilities": [
+                "text",
+                "thinking",
+                "thinking_toggle",
+                "vision"
+            ]
+        },
+        {
+            "id": "mlx-community/Qwen3-VL-4B-Instruct-4bit",
+            "object": "model",
+            "created": 1788638821,
+            "owned_by": "exo",
+            "hugging_face_id": "mlx-community/Qwen3-VL-4B-Instruct-4bit",
+            "name": "Qwen3-VL-4B-Instruct-4bit",
+            "description": "",
+            "context_length": 262144,
+            "tags": [],
+            "storage_size_megabytes": 3185,
+            "supports_tensor": true,
+            "tasks": [
+                "TextGeneration"
+            ],
+            "is_custom": false,
+            "family": "qwen",
+            "quantization": "4bit",
+            "base_model": "Qwen3-VL 4B",
+            "capabilities": [
+                "text",
+                "thinking",
+                "vision"
+            ]
+        },
+        {
+            "id": "mlx-community/MiniMax-M2.7",
+            "object": "model",
+            "created": 1788638821,
+            "owned_by": "exo",
+            "hugging_face_id": "mlx-community/MiniMax-M2.7",
+            "name": "MiniMax-M2.7",
+            "description": "",
+            "context_length": 196608,
+            "tags": [],
+            "storage_size_megabytes": 436299,
+            "supports_tensor": true,
+            "tasks": [
+                "TextGeneration"
+            ],
+            "is_custom": false,
+            "family": "minimax",
+            "quantization": "bf16",
+            "base_model": "MiniMax M2.7",
+            "capabilities": [
+                "text",
+                "thinking"
+            ]
+        },
+        {
+            "id": "mlx-community/Llama-3.3-70B-Instruct-4bit",
+            "object": "model",
+            "created": 1788638821,
+            "owned_by": "exo",
+            "hugging_face_id": "mlx-community/Llama-3.3-70B-Instruct-4bit",
+            "name": "Llama-3.3-70B-Instruct-4bit",
+            "description": "",
+            "context_length": 131072,
+            "tags": [],
+            "storage_size_megabytes": 38769,
+            "supports_tensor": true,
+            "tasks": [
+                "TextGeneration"
+            ],
+            "is_custom": false,
+            "family": "llama",
+            "quantization": "4bit",
+            "base_model": "Llama 3.3 70B",
+            "capabilities": [
+                "text"
+            ]
+        },
+        {
+            "id": "mlx-community/gemma-4-e2b-it-bf16",
+            "object": "model",
+            "created": 1788638821,
+            "owned_by": "exo",
+            "hugging_face_id": "mlx-community/gemma-4-e2b-it-bf16",
+            "name": "gemma-4-e2b-it-bf16",
+            "description": "",
+            "context_length": 131072,
+            "tags": [],
+            "storage_size_megabytes": 9772,
+            "supports_tensor": true,
+            "tasks": [
+                "TextGeneration"
+            ],
+            "is_custom": false,
+            "family": "gemma",
+            "quantization": "bf16",
+            "base_model": "Gemma 4 E2B",
+            "capabilities": [
+                "text",
+                "vision"
+            ]
+        },
+        {
+            "id": "mlx-community/Qwen3-Next-80B-A3B-Instruct-8bit",
+            "object": "model",
+            "created": 1788638821,
+            "owned_by": "exo",
+            "hugging_face_id": "mlx-community/Qwen3-Next-80B-A3B-Instruct-8bit",
+            "name": "Qwen3-Next-80B-A3B-Instruct-8bit",
+            "description": "",
+            "context_length": 262144,
+            "tags": [],
+            "storage_size_megabytes": 84700,
+            "supports_tensor": true,
+            "tasks": [
+                "TextGeneration"
+            ],
+            "is_custom": false,
+            "family": "qwen",
+            "quantization": "8bit",
+            "base_model": "Qwen3 Next 80B",
+            "capabilities": [
+                "text"
+            ]
+        },
+        {
+            "id": "mlx-community/Qwen3.6-27B-4bit",
+            "object": "model",
+            "created": 1788638821,
+            "owned_by": "exo",
+            "hugging_face_id": "mlx-community/Qwen3.6-27B-4bit",
+            "name": "Qwen3.6-27B-4bit",
+            "description": "",
+            "context_length": 262144,
+            "tags": [],
+            "storage_size_megabytes": 15311,
+            "supports_tensor": true,
+            "tasks": [
+                "TextGeneration"
+            ],
+            "is_custom": false,
+            "family": "qwen",
+            "quantization": "4bit",
+            "base_model": "Qwen3.6 27B",
+            "capabilities": [
+                "text",
+                "thinking",
+                "thinking_toggle",
+                "vision"
+            ]
+        },
+        {
+            "id": "mlx-community/GLM-4.7-4bit",
+            "object": "model",
+            "created": 1788638821,
+            "owned_by": "exo",
+            "hugging_face_id": "mlx-community/GLM-4.7-4bit",
+            "name": "GLM-4.7-4bit",
+            "description": "",
+            "context_length": 202752,
+            "tags": [],
+            "storage_size_megabytes": 189359,
+            "supports_tensor": true,
+            "tasks": [
+                "TextGeneration"
+            ],
+            "is_custom": false,
+            "family": "glm",
+            "quantization": "4bit",
+            "base_model": "GLM 4.7",
+            "capabilities": [
+                "text",
+                "thinking",
+                "thinking_toggle"
+            ]
+        },
+        {
+            "id": "mlx-community/gemma-4-31b-it-4bit",
+            "object": "model",
+            "created": 1788638821,
+            "owned_by": "exo",
+            "hugging_face_id": "mlx-community/gemma-4-31b-it-4bit",
+            "name": "gemma-4-31b-it-4bit",
+            "description": "",
+            "context_length": 262144,
+            "tags": [],
+            "storage_size_megabytes": 17559,
+            "supports_tensor": true,
+            "tasks": [
+                "TextGeneration"
+            ],
+            "is_custom": false,
+            "family": "gemma",
+            "quantization": "4bit",
+            "base_model": "Gemma 4 31B",
+            "capabilities": [
+                "text",
+                "vision"
+            ]
+        },
+        {
+            "id": "mlx-community/NVIDIA-Nemotron-3-Nano-30B-A3B-MLX-4Bit",
+            "object": "model",
+            "created": 1788638821,
+            "owned_by": "exo",
+            "hugging_face_id": "mlx-community/NVIDIA-Nemotron-3-Nano-30B-A3B-MLX-4Bit",
+            "name": "NVIDIA-Nemotron-3-Nano-30B-A3B-MLX-4Bit",
+            "description": "",
+            "context_length": 262144,
+            "tags": [],
+            "storage_size_megabytes": 16952,
+            "supports_tensor": true,
+            "tasks": [
+                "TextGeneration"
+            ],
+            "is_custom": false,
+            "family": "nemotron",
+            "quantization": "4bit",
+            "base_model": "NVIDIA Nemotron-3-Nano-30B-A3B",
+            "capabilities": [
+                "text"
+            ]
+        },
+        {
+            "id": "mlx-community/Llama-3.1-Nemotron-Nano-4B-v1.1-4bit",
+            "object": "model",
+            "created": 1788638821,
+            "owned_by": "exo",
+            "hugging_face_id": "mlx-community/Llama-3.1-Nemotron-Nano-4B-v1.1-4bit",
+            "name": "Llama-3.1-Nemotron-Nano-4B-v1.1-4bit",
+            "description": "",
+            "context_length": 131072,
+            "tags": [],
+            "storage_size_megabytes": 2421,
+            "supports_tensor": true,
+            "tasks": [
+                "TextGeneration"
+            ],
+            "is_custom": false,
+            "family": "llama",
+            "quantization": "4bit",
+            "base_model": "NVIDIA Llama-3.1-Nemotron-Nano-4B-v1.1",
+            "capabilities": [
+                "text"
+            ]
+        },
+        {
+            "id": "mlx-community/Qwen3-Coder-Next-6bit",
+            "object": "model",
+            "created": 1788638821,
+            "owned_by": "exo",
+            "hugging_face_id": "mlx-community/Qwen3-Coder-Next-6bit",
+            "name": "Qwen3-Coder-Next-6bit",
+            "description": "",
+            "context_length": 262144,
+            "tags": [],
+            "storage_size_megabytes": 65708,
+            "supports_tensor": true,
+            "tasks": [
+                "TextGeneration"
+            ],
+            "is_custom": false,
+            "family": "qwen",
+            "quantization": "6bit",
+            "base_model": "Qwen3 Coder Next",
+            "capabilities": [
+                "text",
+                "code"
+            ]
+        },
+        {
+            "id": "mlx-community/Step-3.5-Flash-6bit",
+            "object": "model",
+            "created": 1788638821,
+            "owned_by": "exo",
+            "hugging_face_id": "mlx-community/Step-3.5-Flash-6bit",
+            "name": "Step-3.5-Flash-6bit",
+            "description": "",
+            "context_length": 262144,
+            "tags": [],
+            "storage_size_megabytes": 151672,
+            "supports_tensor": true,
+            "tasks": [
+                "TextGeneration"
+            ],
+            "is_custom": false,
+            "family": "step",
+            "quantization": "6bit",
+            "base_model": "Step 3.5 Flash",
+            "capabilities": [
+                "text",
+                "thinking",
+                "thinking_toggle"
+            ]
+        },
+        {
+            "id": "mlx-community/Qwen3-Next-80B-A3B-Thinking-4bit",
+            "object": "model",
+            "created": 1788638821,
+            "owned_by": "exo",
+            "hugging_face_id": "mlx-community/Qwen3-Next-80B-A3B-Thinking-4bit",
+            "name": "Qwen3-Next-80B-A3B-Thinking-4bit",
+            "description": "",
+            "context_length": 262144,
+            "tags": [],
+            "storage_size_megabytes": 44899,
+            "supports_tensor": true,
+            "tasks": [
+                "TextGeneration"
+            ],
+            "is_custom": false,
+            "family": "qwen",
+            "quantization": "4bit",
+            "base_model": "Qwen3 Next 80B",
+            "capabilities": [
+                "text",
+                "thinking",
+                "thinking_toggle"
+            ]
+        },
+        {
+            "id": "mlx-community/DeepSeek-V3.1-4bit",
+            "object": "model",
+            "created": 1788638821,
+            "owned_by": "exo",
+            "hugging_face_id": "mlx-community/DeepSeek-V3.1-4bit",
+            "name": "DeepSeek-V3.1-4bit",
+            "description": "",
+            "context_length": 131072,
+            "tags": [],
+            "storage_size_megabytes": 387072,
+            "supports_tensor": true,
+            "tasks": [
+                "TextGeneration"
+            ],
+            "is_custom": false,
+            "family": "deepseek",
+            "quantization": "4bit",
+            "base_model": "DeepSeek V3.1",
+            "capabilities": [
+                "text",
+                "thinking",
+                "thinking_toggle"
+            ]
+        },
+        {
+            "id": "mlx-community/Llama-3.1-Nemotron-70B-Instruct-HF-8bit",
+            "object": "model",
+            "created": 1788638821,
+            "owned_by": "exo",
+            "hugging_face_id": "mlx-community/Llama-3.1-Nemotron-70B-Instruct-HF-8bit",
+            "name": "Llama-3.1-Nemotron-70B-Instruct-HF-8bit",
+            "description": "",
+            "context_length": 131072,
+            "tags": [],
+            "storage_size_megabytes": 71492,
+            "supports_tensor": true,
+            "tasks": [
+                "TextGeneration"
+            ],
+            "is_custom": false,
+            "family": "llama",
+            "quantization": "8bit",
+            "base_model": "NVIDIA Llama-3.1-Nemotron-70B-Instruct",
+            "capabilities": [
+                "text"
+            ]
+        },
+        {
+            "id": "mlx-community/gemma-4-e4b-it-6bit",
+            "object": "model",
+            "created": 1788638821,
+            "owned_by": "exo",
+            "hugging_face_id": "mlx-community/gemma-4-e4b-it-6bit",
+            "name": "gemma-4-e4b-it-6bit",
+            "description": "",
+            "context_length": 131072,
+            "tags": [],
+            "storage_size_megabytes": 6762,
+            "supports_tensor": true,
+            "tasks": [
+                "TextGeneration"
+            ],
+            "is_custom": false,
+            "family": "gemma",
+            "quantization": "6bit",
+            "base_model": "Gemma 4 E4B",
+            "capabilities": [
+                "text",
+                "vision"
+            ]
+        },
+        {
+            "id": "mlx-community/NVIDIA-Nemotron-3-Nano-30B-A3B-MLX-5Bit",
+            "object": "model",
+            "created": 1788638821,
+            "owned_by": "exo",
+            "hugging_face_id": "mlx-community/NVIDIA-Nemotron-3-Nano-30B-A3B-MLX-5Bit",
+            "name": "NVIDIA-Nemotron-3-Nano-30B-A3B-MLX-5Bit",
+            "description": "",
+            "context_length": 262144,
+            "tags": [],
+            "storage_size_megabytes": 20715,
+            "supports_tensor": true,
+            "tasks": [
+                "TextGeneration"
+            ],
+            "is_custom": false,
+            "family": "nemotron",
+            "quantization": "5bit",
+            "base_model": "NVIDIA Nemotron-3-Nano-30B-A3B",
+            "capabilities": [
+                "text"
+            ]
+        },
+        {
+            "id": "mlx-community/GLM-4.7-Flash-6bit",
+            "object": "model",
+            "created": 1788638821,
+            "owned_by": "exo",
+            "hugging_face_id": "mlx-community/GLM-4.7-Flash-6bit",
+            "name": "GLM-4.7-Flash-6bit",
+            "description": "",
+            "context_length": 202752,
+            "tags": [],
+            "storage_size_megabytes": 25600,
+            "supports_tensor": true,
+            "tasks": [
+                "TextGeneration"
+            ],
+            "is_custom": false,
+            "family": "glm",
+            "quantization": "6bit",
+            "base_model": "GLM 4.7 Flash",
+            "capabilities": [
+                "text",
+                "thinking",
+                "thinking_toggle"
+            ]
+        },
+        {
+            "id": "mlx-community/Qwen3.5-35B-A3B-8bit",
+            "object": "model",
+            "created": 1788638821,
+            "owned_by": "exo",
+            "hugging_face_id": "mlx-community/Qwen3.5-35B-A3B-8bit",
+            "name": "Qwen3.5-35B-A3B-8bit",
+            "description": "",
+            "context_length": 262144,
+            "tags": [],
+            "storage_size_megabytes": 35974,
+            "supports_tensor": true,
+            "tasks": [
+                "TextGeneration"
+            ],
+            "is_custom": false,
+            "family": "qwen",
+            "quantization": "8bit",
+            "base_model": "Qwen3.5 35B A3B",
+            "capabilities": [
+                "text",
+                "thinking",
+                "thinking_toggle",
+                "vision"
+            ]
+        },
+        {
+            "id": "mlx-community/GLM-4.7-8bit-gs32",
+            "object": "model",
+            "created": 1788638821,
+            "owned_by": "exo",
+            "hugging_face_id": "mlx-community/GLM-4.7-8bit-gs32",
+            "name": "GLM-4.7-8bit-gs32",
+            "description": "",
+            "context_length": 202752,
+            "tags": [],
+            "storage_size_megabytes": 378574,
+            "supports_tensor": true,
+            "tasks": [
+                "TextGeneration"
+            ],
+            "is_custom": false,
+            "family": "glm",
+            "quantization": "8bit",
+            "base_model": "GLM 4.7",
+            "capabilities": [
+                "text",
+                "thinking",
+                "thinking_toggle"
+            ]
+        },
+        {
+            "id": "mlx-community/GLM-5.1",
+            "object": "model",
+            "created": 1788638821,
+            "owned_by": "exo",
+            "hugging_face_id": "mlx-community/GLM-5.1",
+            "name": "GLM-5.1",
+            "description": "",
+            "context_length": 202752,
+            "tags": [],
+            "storage_size_megabytes": 1418898,
+            "supports_tensor": true,
+            "tasks": [
+                "TextGeneration"
+            ],
+            "is_custom": false,
+            "family": "glm",
+            "quantization": "bf16",
+            "base_model": "GLM-5.1",
+            "capabilities": [
+                "text",
+                "thinking"
+            ]
+        },
+        {
+            "id": "mlx-community/Kimi-K2.5",
+            "object": "model",
+            "created": 1788638821,
+            "owned_by": "exo",
+            "hugging_face_id": "mlx-community/Kimi-K2.5",
+            "name": "Kimi-K2.5",
+            "description": "",
+            "context_length": 262144,
+            "tags": [],
+            "storage_size_megabytes": 631808,
+            "supports_tensor": true,
+            "tasks": [
+                "TextGeneration"
+            ],
+            "is_custom": false,
+            "family": "kimi",
+            "quantization": "",
+            "base_model": "Kimi K2.5",
+            "capabilities": [
+                "text",
+                "thinking",
+                "thinking_toggle",
+                "vision"
+            ]
+        },
+        {
+            "id": "mlx-community/Qwen3.5-397B-A17B-8bit",
+            "object": "model",
+            "created": 1788638821,
+            "owned_by": "exo",
+            "hugging_face_id": "mlx-community/Qwen3.5-397B-A17B-8bit",
+            "name": "Qwen3.5-397B-A17B-8bit",
+            "description": "",
+            "context_length": 262144,
+            "tags": [],
+            "storage_size_megabytes": 402482,
+            "supports_tensor": true,
+            "tasks": [
+                "TextGeneration"
+            ],
+            "is_custom": false,
+            "family": "qwen",
+            "quantization": "8bit",
+            "base_model": "Qwen3.5 397B A17B",
+            "capabilities": [
+                "text",
+                "thinking",
+                "thinking_toggle",
+                "vision"
+            ]
+        },
+        {
+            "id": "mlx-community/MiniMax-M2.7-5bit",
+            "object": "model",
+            "created": 1788638821,
+            "owned_by": "exo",
+            "hugging_face_id": "mlx-community/MiniMax-M2.7-5bit",
+            "name": "MiniMax-M2.7-5bit",
+            "description": "",
+            "context_length": 196608,
+            "tags": [],
+            "storage_size_megabytes": 149977,
+            "supports_tensor": true,
+            "tasks": [
+                "TextGeneration"
+            ],
+            "is_custom": false,
+            "family": "minimax",
+            "quantization": "5bit",
+            "base_model": "MiniMax M2.7",
+            "capabilities": [
+                "text",
+                "thinking"
+            ]
+        },
+        {
+            "id": "mlx-community/Qwen3.5-2B-MLX-8bit",
+            "object": "model",
+            "created": 1788638821,
+            "owned_by": "exo",
+            "hugging_face_id": "mlx-community/Qwen3.5-2B-MLX-8bit",
+            "name": "Qwen3.5-2B-MLX-8bit",
+            "description": "",
+            "context_length": 262144,
+            "tags": [],
+            "storage_size_megabytes": 2539,
+            "supports_tensor": true,
+            "tasks": [
+                "TextGeneration"
+            ],
+            "is_custom": false,
+            "family": "qwen",
+            "quantization": "8bit",
+            "base_model": "Qwen3.5 2B",
+            "capabilities": [
+                "text",
+                "thinking",
+                "thinking_toggle",
+                "vision"
+            ]
+        },
+        {
+            "id": "mlx-community/DeepSeek-V3.2-8bit",
+            "object": "model",
+            "created": 1788638821,
+            "owned_by": "exo",
+            "hugging_face_id": "mlx-community/DeepSeek-V3.2-8bit",
+            "name": "DeepSeek-V3.2-8bit",
+            "description": "",
+            "context_length": 131072,
+            "tags": [],
+            "storage_size_megabytes": 720937,
+            "supports_tensor": true,
+            "tasks": [
+                "TextGeneration"
+            ],
+            "is_custom": false,
+            "family": "deepseek",
+            "quantization": "8bit",
+            "base_model": "DeepSeek V3.2",
+            "capabilities": [
+                "text",
+                "thinking",
+                "thinking_toggle"
+            ]
+        },
+        {
+            "id": "mlx-community/Qwen3.5-27B-4bit",
+            "object": "model",
+            "created": 1788638821,
+            "owned_by": "exo",
+            "hugging_face_id": "mlx-community/Qwen3.5-27B-4bit",
+            "name": "Qwen3.5-27B-4bit",
+            "description": "",
+            "context_length": 262144,
+            "tags": [],
+            "storage_size_megabytes": 15311,
+            "supports_tensor": true,
+            "tasks": [
+                "TextGeneration"
+            ],
+            "is_custom": false,
+            "family": "qwen",
+            "quantization": "4bit",
+            "base_model": "Qwen3.5 27B",
+            "capabilities": [
+                "text",
+                "thinking",
+                "thinking_toggle",
+                "vision"
+            ]
+        },
+        {
+            "id": "mlx-community/gemma-4-e2b-it-8bit",
+            "object": "model",
+            "created": 1788638821,
+            "owned_by": "exo",
+            "hugging_face_id": "mlx-community/gemma-4-e2b-it-8bit",
+            "name": "gemma-4-e2b-it-8bit",
+            "description": "",
+            "context_length": 131072,
+            "tags": [],
+            "storage_size_megabytes": 5626,
+            "supports_tensor": true,
+            "tasks": [
+                "TextGeneration"
+            ],
+            "is_custom": false,
+            "family": "gemma",
+            "quantization": "8bit",
+            "base_model": "Gemma 4 E2B",
+            "capabilities": [
+                "text",
+                "vision"
+            ]
+        },
+        {
+            "id": "mlx-community/Qwen3-Coder-Next-5bit",
+            "object": "model",
+            "created": 1788638821,
+            "owned_by": "exo",
+            "hugging_face_id": "mlx-community/Qwen3-Coder-Next-5bit",
+            "name": "Qwen3-Coder-Next-5bit",
+            "description": "",
+            "context_length": 262144,
+            "tags": [],
+            "storage_size_megabytes": 54987,
+            "supports_tensor": true,
+            "tasks": [
+                "TextGeneration"
+            ],
+            "is_custom": false,
+            "family": "qwen",
+            "quantization": "5bit",
+            "base_model": "Qwen3 Coder Next",
+            "capabilities": [
+                "text",
+                "code"
+            ]
+        },
+        {
+            "id": "mlx-community/GLM-4.7-Flash-4bit",
+            "object": "model",
+            "created": 1788638821,
+            "owned_by": "exo",
+            "hugging_face_id": "mlx-community/GLM-4.7-Flash-4bit",
+            "name": "GLM-4.7-Flash-4bit",
+            "description": "",
+            "context_length": 202752,
+            "tags": [],
+            "storage_size_megabytes": 18432,
+            "supports_tensor": true,
+            "tasks": [
+                "TextGeneration"
+            ],
+            "is_custom": false,
+            "family": "glm",
+            "quantization": "4bit",
+            "base_model": "GLM 4.7 Flash",
+            "capabilities": [
+                "text",
+                "thinking",
+                "thinking_toggle"
+            ]
+        },
+        {
+            "id": "mlx-community/Qwen3.6-35B-A3B-8bit",
+            "object": "model",
+            "created": 1788638821,
+            "owned_by": "exo",
+            "hugging_face_id": "mlx-community/Qwen3.6-35B-A3B-8bit",
+            "name": "Qwen3.6-35B-A3B-8bit",
+            "description": "",
+            "context_length": 262144,
+            "tags": [],
+            "storage_size_megabytes": 35974,
+            "supports_tensor": true,
+            "tasks": [
+                "TextGeneration"
+            ],
+            "is_custom": false,
+            "family": "qwen",
+            "quantization": "8bit",
+            "base_model": "Qwen3.6 35B A3B",
+            "capabilities": [
+                "text",
+                "thinking",
+                "thinking_toggle",
+                "vision"
+            ]
+        },
+        {
+            "id": "mlx-community/Qwen3.5-9B-4bit",
+            "object": "model",
+            "created": 1788638821,
+            "owned_by": "exo",
+            "hugging_face_id": "mlx-community/Qwen3.5-9B-4bit",
+            "name": "Qwen3.5-9B-4bit",
+            "description": "",
+            "context_length": 262144,
+            "tags": [],
+            "storage_size_megabytes": 5674,
+            "supports_tensor": true,
+            "tasks": [
+                "TextGeneration"
+            ],
+            "is_custom": false,
+            "family": "qwen",
+            "quantization": "4bit",
+            "base_model": "Qwen3.5 9B",
+            "capabilities": [
+                "text",
+                "thinking",
+                "thinking_toggle",
+                "vision"
+            ]
+        },
+        {
+            "id": "mlx-community/Qwen3-235B-A22B-Instruct-2507-8bit",
+            "object": "model",
+            "created": 1788638821,
+            "owned_by": "exo",
+            "hugging_face_id": "mlx-community/Qwen3-235B-A22B-Instruct-2507-8bit",
+            "name": "Qwen3-235B-A22B-Instruct-2507-8bit",
+            "description": "",
+            "context_length": 262144,
+            "tags": [],
+            "storage_size_megabytes": 256000,
+            "supports_tensor": true,
+            "tasks": [
+                "TextGeneration"
+            ],
+            "is_custom": false,
+            "family": "qwen",
+            "quantization": "8bit",
+            "base_model": "Qwen3 235B",
+            "capabilities": [
+                "text",
+                "thinking",
+                "thinking_toggle"
+            ]
+        },
+        {
+            "id": "mlx-community/Kimi-K2.6-mlx-DQ3_K_M-q8",
+            "object": "model",
+            "created": 1788638821,
+            "owned_by": "exo",
+            "hugging_face_id": "mlx-community/Kimi-K2.6-mlx-DQ3_K_M-q8",
+            "name": "Kimi-K2.6-mlx-DQ3_K_M-q8",
+            "description": "",
+            "context_length": 262144,
+            "tags": [],
+            "storage_size_megabytes": 448826,
+            "supports_tensor": true,
+            "tasks": [
+                "TextGeneration"
+            ],
+            "is_custom": false,
+            "family": "kimi",
+            "quantization": "3bit",
+            "base_model": "Kimi K2.6",
+            "capabilities": [
+                "text",
+                "thinking",
+                "thinking_toggle",
+                "vision"
+            ]
+        },
+        {
+            "id": "mlx-community/MiniMax-M2.7-4bit-mxfp4",
+            "object": "model",
+            "created": 1788638821,
+            "owned_by": "exo",
+            "hugging_face_id": "mlx-community/MiniMax-M2.7-4bit-mxfp4",
+            "name": "MiniMax-M2.7-4bit-mxfp4",
+            "description": "",
+            "context_length": 196608,
+            "tags": [],
+            "storage_size_megabytes": 115907,
+            "supports_tensor": true,
+            "tasks": [
+                "TextGeneration"
+            ],
+            "is_custom": false,
+            "family": "minimax",
+            "quantization": "4bit-mxfp4",
+            "base_model": "MiniMax M2.7",
+            "capabilities": [
+                "text",
+                "thinking"
+            ]
+        },
+        {
+            "id": "mlx-community/Qwen3-0.6B-8bit",
+            "object": "model",
+            "created": 1788638821,
+            "owned_by": "exo",
+            "hugging_face_id": "mlx-community/Qwen3-0.6B-8bit",
+            "name": "Qwen3-0.6B-8bit",
+            "description": "",
+            "context_length": 32768,
+            "tags": [],
+            "storage_size_megabytes": 666,
+            "supports_tensor": false,
+            "tasks": [
+                "TextGeneration"
+            ],
+            "is_custom": false,
+            "family": "qwen",
+            "quantization": "8bit",
+            "base_model": "Qwen3 0.6B",
+            "capabilities": [
+                "text",
+                "thinking",
+                "thinking_toggle"
+            ]
+        },
+        {
+            "id": "mlx-community/Llama-3.1-Nemotron-70B-Instruct-HF-bf16",
+            "object": "model",
+            "created": 1788638821,
+            "owned_by": "exo",
+            "hugging_face_id": "mlx-community/Llama-3.1-Nemotron-70B-Instruct-HF-bf16",
+            "name": "Llama-3.1-Nemotron-70B-Instruct-HF-bf16",
+            "description": "",
+            "context_length": 131072,
+            "tags": [],
+            "storage_size_megabytes": 134571,
+            "supports_tensor": true,
+            "tasks": [
+                "TextGeneration"
+            ],
+            "is_custom": false,
+            "family": "llama",
+            "quantization": "bf16",
+            "base_model": "NVIDIA Llama-3.1-Nemotron-70B-Instruct",
+            "capabilities": [
+                "text"
+            ]
+        },
+        {
+            "id": "mlx-community/llama-3.3-70b-instruct-fp16",
+            "object": "model",
+            "created": 1788638821,
+            "owned_by": "exo",
+            "hugging_face_id": "mlx-community/llama-3.3-70b-instruct-fp16",
+            "name": "llama-3.3-70b-instruct-fp16",
+            "description": "",
+            "context_length": 131072,
+            "tags": [],
+            "storage_size_megabytes": 137695,
+            "supports_tensor": true,
+            "tasks": [
+                "TextGeneration"
+            ],
+            "is_custom": false,
+            "family": "llama",
+            "quantization": "fp16",
+            "base_model": "Llama 3.3 70B",
+            "capabilities": [
+                "text"
+            ]
+        },
+        {
+            "id": "mlx-community/Llama-3.2-3B-Instruct-8bit",
+            "object": "model",
+            "created": 1788638821,
+            "owned_by": "exo",
+            "hugging_face_id": "mlx-community/Llama-3.2-3B-Instruct-8bit",
+            "name": "Llama-3.2-3B-Instruct-8bit",
+            "description": "",
+            "context_length": 131072,
+            "tags": [],
+            "storage_size_megabytes": 3339,
+            "supports_tensor": true,
+            "tasks": [
+                "TextGeneration"
+            ],
+            "is_custom": false,
+            "family": "llama",
+            "quantization": "8bit",
+            "base_model": "Llama 3.2 3B",
+            "capabilities": [
+                "text"
+            ]
+        },
+        {
+            "id": "mlx-community/Qwen3-30B-A3B-8bit",
+            "object": "model",
+            "created": 1788638821,
+            "owned_by": "exo",
+            "hugging_face_id": "mlx-community/Qwen3-30B-A3B-8bit",
+            "name": "Qwen3-30B-A3B-8bit",
+            "description": "",
+            "context_length": 32768,
+            "tags": [],
+            "storage_size_megabytes": 31738,
+            "supports_tensor": true,
+            "tasks": [
+                "TextGeneration"
+            ],
+            "is_custom": false,
+            "family": "qwen",
+            "quantization": "8bit",
+            "base_model": "Qwen3 30B",
+            "capabilities": [
+                "text",
+                "thinking",
+                "thinking_toggle"
+            ]
+        },
+        {
+            "id": "mlx-community/MiniMax-M2.5-8bit",
+            "object": "model",
+            "created": 1788638821,
+            "owned_by": "exo",
+            "hugging_face_id": "mlx-community/MiniMax-M2.5-8bit",
+            "name": "MiniMax-M2.5-8bit",
+            "description": "",
+            "context_length": 196608,
+            "tags": [],
+            "storage_size_megabytes": 231730,
+            "supports_tensor": true,
+            "tasks": [
+                "TextGeneration"
+            ],
+            "is_custom": false,
+            "family": "minimax",
+            "quantization": "8bit",
+            "base_model": "MiniMax M2.5",
+            "capabilities": [
+                "text",
+                "thinking"
+            ]
+        },
+        {
+            "id": "mlx-community/MiniMax-M2.7-6bit",
+            "object": "model",
+            "created": 1788638821,
+            "owned_by": "exo",
+            "hugging_face_id": "mlx-community/MiniMax-M2.7-6bit",
+            "name": "MiniMax-M2.7-6bit",
+            "description": "",
+            "context_length": 196608,
+            "tags": [],
+            "storage_size_megabytes": 177233,
+            "supports_tensor": true,
+            "tasks": [
+                "TextGeneration"
+            ],
+            "is_custom": false,
+            "family": "minimax",
+            "quantization": "6bit",
+            "base_model": "MiniMax M2.7",
+            "capabilities": [
+                "text",
+                "thinking"
+            ]
+        },
+        {
+            "id": "mlx-community/Qwen3.5-122B-A10B-6bit",
+            "object": "model",
+            "created": 1788638821,
+            "owned_by": "exo",
+            "hugging_face_id": "mlx-community/Qwen3.5-122B-A10B-6bit",
+            "name": "Qwen3.5-122B-A10B-6bit",
+            "description": "",
+            "context_length": 262144,
+            "tags": [],
+            "storage_size_megabytes": 95483,
+            "supports_tensor": true,
+            "tasks": [
+                "TextGeneration"
+            ],
+            "is_custom": false,
+            "family": "qwen",
+            "quantization": "6bit",
+            "base_model": "Qwen3.5 122B A10B",
+            "capabilities": [
+                "text",
+                "thinking",
+                "thinking_toggle",
+                "vision"
+            ]
+        },
+        {
+            "id": "mlx-community/gemma-4-26b-a4b-it-4bit",
+            "object": "model",
+            "created": 1788638821,
+            "owned_by": "exo",
+            "hugging_face_id": "mlx-community/gemma-4-26b-a4b-it-4bit",
+            "name": "gemma-4-26b-a4b-it-4bit",
+            "description": "",
+            "context_length": 262144,
+            "tags": [],
+            "storage_size_megabytes": 14886,
+            "supports_tensor": false,
+            "tasks": [
+                "TextGeneration"
+            ],
+            "is_custom": false,
+            "family": "gemma",
+            "quantization": "4bit",
+            "base_model": "Gemma 4 26B A4B",
+            "capabilities": [
+                "text",
+                "vision"
+            ]
+        },
+        {
+            "id": "mlx-community/GLM-5-MXFP4-Q8",
+            "object": "model",
+            "created": 1788638821,
+            "owned_by": "exo",
+            "hugging_face_id": "mlx-community/GLM-5-MXFP4-Q8",
+            "name": "GLM-5-MXFP4-Q8",
+            "description": "",
+            "context_length": 202752,
+            "tags": [],
+            "storage_size_megabytes": 386695,
+            "supports_tensor": true,
+            "tasks": [
+                "TextGeneration"
+            ],
+            "is_custom": false,
+            "family": "glm",
+            "quantization": "MXFP4-Q8",
+            "base_model": "GLM-5",
+            "capabilities": [
+                "text",
+                "thinking"
+            ]
+        },
+        {
+            "id": "mlx-community/Qwen3-Coder-Next-4bit",
+            "object": "model",
+            "created": 1788638821,
+            "owned_by": "exo",
+            "hugging_face_id": "mlx-community/Qwen3-Coder-Next-4bit",
+            "name": "Qwen3-Coder-Next-4bit",
+            "description": "",
+            "context_length": 262144,
+            "tags": [],
+            "storage_size_megabytes": 43530,
+            "supports_tensor": true,
+            "tasks": [
+                "TextGeneration"
+            ],
+            "is_custom": false,
+            "family": "qwen",
+            "quantization": "4bit",
+            "base_model": "Qwen3 Coder Next",
+            "capabilities": [
+                "text",
+                "code"
+            ]
+        },
+        {
+            "id": "mlx-community/GLM-4.7-6bit",
+            "object": "model",
+            "created": 1788638821,
+            "owned_by": "exo",
+            "hugging_face_id": "mlx-community/GLM-4.7-6bit",
+            "name": "GLM-4.7-6bit",
+            "description": "",
+            "context_length": 202752,
+            "tags": [],
+            "storage_size_megabytes": 273454,
+            "supports_tensor": true,
+            "tasks": [
+                "TextGeneration"
+            ],
+            "is_custom": false,
+            "family": "glm",
+            "quantization": "6bit",
+            "base_model": "GLM 4.7",
+            "capabilities": [
+                "text",
+                "thinking",
+                "thinking_toggle"
+            ]
+        },
+        {
+            "id": "mlx-community/NVIDIA-Nemotron-3-Nano-30B-A3B-MLX-6Bit",
+            "object": "model",
+            "created": 1788638821,
+            "owned_by": "exo",
+            "hugging_face_id": "mlx-community/NVIDIA-Nemotron-3-Nano-30B-A3B-MLX-6Bit",
+            "name": "NVIDIA-Nemotron-3-Nano-30B-A3B-MLX-6Bit",
+            "description": "",
+            "context_length": 262144,
+            "tags": [],
+            "storage_size_megabytes": 24479,
+            "supports_tensor": true,
+            "tasks": [
+                "TextGeneration"
+            ],
+            "is_custom": false,
+            "family": "nemotron",
+            "quantization": "6bit",
+            "base_model": "NVIDIA Nemotron-3-Nano-30B-A3B",
+            "capabilities": [
+                "text"
+            ]
+        },
+        {
+            "id": "mlx-community/GLM-4.7-Flash-5bit",
+            "object": "model",
+            "created": 1788638821,
+            "owned_by": "exo",
+            "hugging_face_id": "mlx-community/GLM-4.7-Flash-5bit",
+            "name": "GLM-4.7-Flash-5bit",
+            "description": "",
+            "context_length": 202752,
+            "tags": [],
+            "storage_size_megabytes": 21504,
+            "supports_tensor": true,
+            "tasks": [
+                "TextGeneration"
+            ],
+            "is_custom": false,
+            "family": "glm",
+            "quantization": "5bit",
+            "base_model": "GLM 4.7 Flash",
+            "capabilities": [
+                "text",
+                "thinking",
+                "thinking_toggle"
+            ]
+        },
+        {
+            "id": "mlx-community/gemma-4-31b-it-6bit",
+            "object": "model",
+            "created": 1788638821,
+            "owned_by": "exo",
+            "hugging_face_id": "mlx-community/gemma-4-31b-it-6bit",
+            "name": "gemma-4-31b-it-6bit",
+            "description": "",
+            "context_length": 262144,
+            "tags": [],
+            "storage_size_megabytes": 24879,
+            "supports_tensor": true,
+            "tasks": [
+                "TextGeneration"
+            ],
+            "is_custom": false,
+            "family": "gemma",
+            "quantization": "6bit",
+            "base_model": "Gemma 4 31B",
+            "capabilities": [
+                "text",
+                "vision"
+            ]
+        },
+        {
+            "id": "mlx-community/Meta-Llama-3.1-8B-Instruct-4bit",
+            "object": "model",
+            "created": 1788638821,
+            "owned_by": "exo",
+            "hugging_face_id": "mlx-community/Meta-Llama-3.1-8B-Instruct-4bit",
+            "name": "Meta-Llama-3.1-8B-Instruct-4bit",
+            "description": "",
+            "context_length": 131072,
+            "tags": [],
+            "storage_size_megabytes": 4423,
+            "supports_tensor": true,
+            "tasks": [
+                "TextGeneration"
+            ],
+            "is_custom": false,
+            "family": "llama",
+            "quantization": "4bit",
+            "base_model": "Llama 3.1 8B",
+            "capabilities": [
+                "text"
+            ]
+        },
+        {
+            "id": "mlx-community/gemma-4-e4b-it-4bit",
+            "object": "model",
+            "created": 1788638821,
+            "owned_by": "exo",
+            "hugging_face_id": "mlx-community/gemma-4-e4b-it-4bit",
+            "name": "gemma-4-e4b-it-4bit",
+            "description": "",
+            "context_length": 131072,
+            "tags": [],
+            "storage_size_megabytes": 4975,
+            "supports_tensor": true,
+            "tasks": [
+                "TextGeneration"
+            ],
+            "is_custom": false,
+            "family": "gemma",
+            "quantization": "4bit",
+            "base_model": "Gemma 4 E4B",
+            "capabilities": [
+                "text",
+                "vision"
+            ]
+        },
+        {
+            "id": "mlx-community/Step-3.5-Flash-4bit",
+            "object": "model",
+            "created": 1788638821,
+            "owned_by": "exo",
+            "hugging_face_id": "mlx-community/Step-3.5-Flash-4bit",
+            "name": "Step-3.5-Flash-4bit",
+            "description": "",
+            "context_length": 262144,
+            "tags": [],
+            "storage_size_megabytes": 109265,
+            "supports_tensor": true,
+            "tasks": [
+                "TextGeneration"
+            ],
+            "is_custom": false,
+            "family": "step",
+            "quantization": "4bit",
+            "base_model": "Step 3.5 Flash",
+            "capabilities": [
+                "text",
+                "thinking",
+                "thinking_toggle"
+            ]
+        },
+        {
+            "id": "mlx-community/MiniMax-M2.5-4bit",
+            "object": "model",
+            "created": 1788638821,
+            "owned_by": "exo",
+            "hugging_face_id": "mlx-community/MiniMax-M2.5-4bit",
+            "name": "MiniMax-M2.5-4bit",
+            "description": "",
+            "context_length": 196608,
+            "tags": [],
+            "storage_size_megabytes": 122706,
+            "supports_tensor": true,
+            "tasks": [
+                "TextGeneration"
+            ],
+            "is_custom": false,
+            "family": "minimax",
+            "quantization": "4bit",
+            "base_model": "MiniMax M2.5",
+            "capabilities": [
+                "text",
+                "thinking"
+            ]
+        },
+        {
+            "id": "mlx-community/gemma-4-26b-a4b-it-8bit",
+            "object": "model",
+            "created": 1788638821,
+            "owned_by": "exo",
+            "hugging_face_id": "mlx-community/gemma-4-26b-a4b-it-8bit",
+            "name": "gemma-4-26b-a4b-it-8bit",
+            "description": "",
+            "context_length": 262144,
+            "tags": [],
+            "storage_size_megabytes": 26658,
+            "supports_tensor": false,
+            "tasks": [
+                "TextGeneration"
+            ],
+            "is_custom": false,
+            "family": "gemma",
+            "quantization": "8bit",
+            "base_model": "Gemma 4 26B A4B",
+            "capabilities": [
+                "text",
+                "vision"
+            ]
+        },
+        {
+            "id": "mlx-community/Llama-3.2-3B-Instruct-4bit",
+            "object": "model",
+            "created": 1788638821,
+            "owned_by": "exo",
+            "hugging_face_id": "mlx-community/Llama-3.2-3B-Instruct-4bit",
+            "name": "Llama-3.2-3B-Instruct-4bit",
+            "description": "",
+            "context_length": 131072,
+            "tags": [],
+            "storage_size_megabytes": 1777,
+            "supports_tensor": true,
+            "tasks": [
+                "TextGeneration"
+            ],
+            "is_custom": false,
+            "family": "llama",
+            "quantization": "4bit",
+            "base_model": "Llama 3.2 3B",
+            "capabilities": [
+                "text"
+            ]
+        },
+        {
+            "id": "mlx-community/Qwen3-30B-A3B-4bit",
+            "object": "model",
+            "created": 1788638821,
+            "owned_by": "exo",
+            "hugging_face_id": "mlx-community/Qwen3-30B-A3B-4bit",
+            "name": "Qwen3-30B-A3B-4bit",
+            "description": "",
+            "context_length": 32768,
+            "tags": [],
+            "storage_size_megabytes": 16797,
+            "supports_tensor": true,
+            "tasks": [
+                "TextGeneration"
+            ],
+            "is_custom": false,
+            "family": "qwen",
+            "quantization": "4bit",
+            "base_model": "Qwen3 30B",
+            "capabilities": [
+                "text",
+                "thinking",
+                "thinking_toggle"
+            ]
+        },
+        {
+            "id": "mlx-community/Step-3.5-Flash-8Bit",
+            "object": "model",
+            "created": 1788638821,
+            "owned_by": "exo",
+            "hugging_face_id": "mlx-community/Step-3.5-Flash-8Bit",
+            "name": "Step-3.5-Flash-8Bit",
+            "description": "",
+            "context_length": 262144,
+            "tags": [],
+            "storage_size_megabytes": 199397,
+            "supports_tensor": true,
+            "tasks": [
+                "TextGeneration"
+            ],
+            "is_custom": false,
+            "family": "step",
+            "quantization": "8bit",
+            "base_model": "Step 3.5 Flash",
+            "capabilities": [
+                "text",
+                "thinking",
+                "thinking_toggle"
+            ]
+        },
+        {
+            "id": "mlx-community/GLM-4.5-Air-8bit",
+            "object": "model",
+            "created": 1788638821,
+            "owned_by": "exo",
+            "hugging_face_id": "mlx-community/GLM-4.5-Air-8bit",
+            "name": "GLM-4.5-Air-8bit",
+            "description": "",
+            "context_length": 131072,
+            "tags": [],
+            "storage_size_megabytes": 116736,
+            "supports_tensor": false,
+            "tasks": [
+                "TextGeneration"
+            ],
+            "is_custom": false,
+            "family": "glm",
+            "quantization": "8bit",
+            "base_model": "GLM 4.5 Air",
+            "capabilities": [
+                "text",
+                "thinking",
+                "thinking_toggle"
+            ]
+        },
+        {
+            "id": "mlx-community/Meta-Llama-3.1-8B-Instruct-8bit",
+            "object": "model",
+            "created": 1788638821,
+            "owned_by": "exo",
+            "hugging_face_id": "mlx-community/Meta-Llama-3.1-8B-Instruct-8bit",
+            "name": "Meta-Llama-3.1-8B-Instruct-8bit",
+            "description": "",
+            "context_length": 131072,
+            "tags": [],
+            "storage_size_megabytes": 8540,
+            "supports_tensor": true,
+            "tasks": [
+                "TextGeneration"
+            ],
+            "is_custom": false,
+            "family": "llama",
+            "quantization": "8bit",
+            "base_model": "Llama 3.1 8B",
+            "capabilities": [
+                "text"
+            ]
+        },
+        {
+            "id": "mlx-community/gemma-4-e4b-it-8bit",
+            "object": "model",
+            "created": 1788638821,
+            "owned_by": "exo",
+            "hugging_face_id": "mlx-community/gemma-4-e4b-it-8bit",
+            "name": "gemma-4-e4b-it-8bit",
+            "description": "",
+            "context_length": 131072,
+            "tags": [],
+            "storage_size_megabytes": 8550,
+            "supports_tensor": true,
+            "tasks": [
+                "TextGeneration"
+            ],
+            "is_custom": false,
+            "family": "gemma",
+            "quantization": "8bit",
+            "base_model": "Gemma 4 E4B",
+            "capabilities": [
+                "text",
+                "vision"
+            ]
+        },
+        {
+            "id": "mlx-community/Qwen3.6-35B-A3B-5bit",
+            "object": "model",
+            "created": 1788638821,
+            "owned_by": "exo",
+            "hugging_face_id": "mlx-community/Qwen3.6-35B-A3B-5bit",
+            "name": "Qwen3.6-35B-A3B-5bit",
+            "description": "",
+            "context_length": 262144,
+            "tags": [],
+            "storage_size_megabytes": 23586,
+            "supports_tensor": true,
+            "tasks": [
+                "TextGeneration"
+            ],
+            "is_custom": false,
+            "family": "qwen",
+            "quantization": "5bit",
+            "base_model": "Qwen3.6 35B A3B",
+            "capabilities": [
+                "text",
+                "thinking",
+                "thinking_toggle",
+                "vision"
+            ]
+        },
+        {
+            "id": "mlx-community/Llama-3.2-1B-Instruct-4bit",
+            "object": "model",
+            "created": 1788638821,
+            "owned_by": "exo",
+            "hugging_face_id": "mlx-community/Llama-3.2-1B-Instruct-4bit",
+            "name": "Llama-3.2-1B-Instruct-4bit",
+            "description": "",
+            "context_length": 131072,
+            "tags": [],
+            "storage_size_megabytes": 696,
+            "supports_tensor": true,
+            "tasks": [
+                "TextGeneration"
+            ],
+            "is_custom": false,
+            "family": "llama",
+            "quantization": "4bit",
+            "base_model": "Llama 3.2 1B",
+            "capabilities": [
+                "text"
+            ]
+        },
+        {
+            "id": "mlx-community/Qwen3-Coder-Next-8bit",
+            "object": "model",
+            "created": 1788638821,
+            "owned_by": "exo",
+            "hugging_face_id": "mlx-community/Qwen3-Coder-Next-8bit",
+            "name": "Qwen3-Coder-Next-8bit",
+            "description": "",
+            "context_length": 262144,
+            "tags": [],
+            "storage_size_megabytes": 85218,
+            "supports_tensor": true,
+            "tasks": [
+                "TextGeneration"
+            ],
+            "is_custom": false,
+            "family": "qwen",
+            "quantization": "8bit",
+            "base_model": "Qwen3 Coder Next",
+            "capabilities": [
+                "text",
+                "code"
+            ]
+        },
+        {
+            "id": "mlx-community/Qwen3.6-35B-A3B-4bit",
+            "object": "model",
+            "created": 1788638821,
+            "owned_by": "exo",
+            "hugging_face_id": "mlx-community/Qwen3.6-35B-A3B-4bit",
+            "name": "Qwen3.6-35B-A3B-4bit",
+            "description": "",
+            "context_length": 262144,
+            "tags": [],
+            "storage_size_megabytes": 19457,
+            "supports_tensor": true,
+            "tasks": [
+                "TextGeneration"
+            ],
+            "is_custom": false,
+            "family": "qwen",
+            "quantization": "4bit",
+            "base_model": "Qwen3.6 35B A3B",
+            "capabilities": [
+                "text",
+                "thinking",
+                "thinking_toggle",
+                "vision"
+            ]
+        },
+        {
+            "id": "mlx-community/Qwen3.5-9B-8bit",
+            "object": "model",
+            "created": 1788638821,
+            "owned_by": "exo",
+            "hugging_face_id": "mlx-community/Qwen3.5-9B-8bit",
+            "name": "Qwen3.5-9B-8bit",
+            "description": "",
+            "context_length": 262144,
+            "tags": [],
+            "storage_size_megabytes": 9943,
+            "supports_tensor": true,
+            "tasks": [
+                "TextGeneration"
+            ],
+            "is_custom": false,
+            "family": "qwen",
+            "quantization": "8bit",
+            "base_model": "Qwen3.5 9B",
+            "capabilities": [
+                "text",
+                "thinking",
+                "thinking_toggle",
+                "vision"
+            ]
+        },
+        {
+            "id": "mlx-community/Qwen3-235B-A22B-Instruct-2507-4bit",
+            "object": "model",
+            "created": 1788638821,
+            "owned_by": "exo",
+            "hugging_face_id": "mlx-community/Qwen3-235B-A22B-Instruct-2507-4bit",
+            "name": "Qwen3-235B-A22B-Instruct-2507-4bit",
+            "description": "",
+            "context_length": 262144,
+            "tags": [],
+            "storage_size_megabytes": 135168,
+            "supports_tensor": true,
+            "tasks": [
+                "TextGeneration"
+            ],
+            "is_custom": false,
+            "family": "qwen",
+            "quantization": "4bit",
+            "base_model": "Qwen3 235B",
+            "capabilities": [
+                "text",
+                "thinking",
+                "thinking_toggle"
+            ]
+        },
+        {
+            "id": "mlx-community/Qwen3.5-122B-A10B-bf16",
+            "object": "model",
+            "created": 1788638821,
+            "owned_by": "exo",
+            "hugging_face_id": "mlx-community/Qwen3.5-122B-A10B-bf16",
+            "name": "Qwen3.5-122B-A10B-bf16",
+            "description": "",
+            "context_length": 262144,
+            "tags": [],
+            "storage_size_megabytes": 233770,
+            "supports_tensor": true,
+            "tasks": [
+                "TextGeneration"
+            ],
+            "is_custom": false,
+            "family": "qwen",
+            "quantization": "bf16",
+            "base_model": "Qwen3.5 122B A10B",
+            "capabilities": [
+                "text",
+                "thinking",
+                "thinking_toggle",
+                "vision"
+            ]
+        },
+        {
+            "id": "mlx-community/gpt-oss-120b-MXFP4-Q8",
+            "object": "model",
+            "created": 1788638821,
+            "owned_by": "exo",
+            "hugging_face_id": "mlx-community/gpt-oss-120b-MXFP4-Q8",
+            "name": "gpt-oss-120b-MXFP4-Q8",
+            "description": "",
+            "context_length": 131072,
+            "tags": [],
+            "storage_size_megabytes": 67379,
+            "supports_tensor": true,
+            "tasks": [
+                "TextGeneration"
+            ],
+            "is_custom": false,
+            "family": "gpt-oss",
+            "quantization": "MXFP4-Q8",
+            "base_model": "GPT-OSS 120B",
+            "capabilities": [
+                "text",
+                "thinking"
+            ]
+        },
+        {
+            "id": "mlx-community/Qwen3.6-27B-bf16",
+            "object": "model",
+            "created": 1788638821,
+            "owned_by": "exo",
+            "hugging_face_id": "mlx-community/Qwen3.6-27B-bf16",
+            "name": "Qwen3.6-27B-bf16",
+            "description": "",
+            "context_length": 262144,
+            "tags": [],
+            "storage_size_megabytes": 52179,
+            "supports_tensor": true,
+            "tasks": [
+                "TextGeneration"
+            ],
+            "is_custom": false,
+            "family": "qwen",
+            "quantization": "bf16",
+            "base_model": "Qwen3.6 27B",
+            "capabilities": [
+                "text",
+                "thinking",
+                "thinking_toggle",
+                "vision"
+            ]
+        },
+        {
+            "id": "mlx-community/GLM-4.7-Flash-8bit",
+            "object": "model",
+            "created": 1788638821,
+            "owned_by": "exo",
+            "hugging_face_id": "mlx-community/GLM-4.7-Flash-8bit",
+            "name": "GLM-4.7-Flash-8bit",
+            "description": "",
+            "context_length": 202752,
+            "tags": [],
+            "storage_size_megabytes": 32768,
+            "supports_tensor": true,
+            "tasks": [
+                "TextGeneration"
+            ],
+            "is_custom": false,
+            "family": "glm",
+            "quantization": "8bit",
+            "base_model": "GLM 4.7 Flash",
+            "capabilities": [
+                "text",
+                "thinking",
+                "thinking_toggle"
+            ]
+        },
+        {
+            "id": "mlx-community/gemma-4-e2b-it-4bit",
+            "object": "model",
+            "created": 1788638821,
+            "owned_by": "exo",
+            "hugging_face_id": "mlx-community/gemma-4-e2b-it-4bit",
+            "name": "gemma-4-e2b-it-4bit",
+            "description": "",
+            "context_length": 131072,
+            "tags": [],
+            "storage_size_megabytes": 3415,
+            "supports_tensor": true,
+            "tasks": [
+                "TextGeneration"
+            ],
+            "is_custom": false,
+            "family": "gemma",
+            "quantization": "4bit",
+            "base_model": "Gemma 4 E2B",
+            "capabilities": [
+                "text",
+                "vision"
+            ]
+        },
+        {
+            "id": "mlx-community/GLM-5.1-DQ4plus-q8",
+            "object": "model",
+            "created": 1788638821,
+            "owned_by": "exo",
+            "hugging_face_id": "mlx-community/GLM-5.1-DQ4plus-q8",
+            "name": "GLM-5.1-DQ4plus-q8",
+            "description": "",
+            "context_length": 202752,
+            "tags": [],
+            "storage_size_megabytes": 443624,
+            "supports_tensor": true,
+            "tasks": [
+                "TextGeneration"
+            ],
+            "is_custom": false,
+            "family": "glm",
+            "quantization": "8bit",
+            "base_model": "GLM-5.1",
+            "capabilities": [
+                "text",
+                "thinking"
+            ]
+        },
+        {
+            "id": "mlx-community/Llama-3.1-Nemotron-Nano-4B-v1.1-bf16",
+            "object": "model",
+            "created": 1788638821,
+            "owned_by": "exo",
+            "hugging_face_id": "mlx-community/Llama-3.1-Nemotron-Nano-4B-v1.1-bf16",
+            "name": "Llama-3.1-Nemotron-Nano-4B-v1.1-bf16",
+            "description": "",
+            "context_length": 131072,
+            "tags": [],
+            "storage_size_megabytes": 8607,
+            "supports_tensor": true,
+            "tasks": [
+                "TextGeneration"
+            ],
+            "is_custom": false,
+            "family": "llama",
+            "quantization": "bf16",
+            "base_model": "NVIDIA Llama-3.1-Nemotron-Nano-4B-v1.1",
+            "capabilities": [
+                "text"
+            ]
+        },
+        {
+            "id": "mlx-community/gpt-oss-20b-MXFP4-Q8",
+            "object": "model",
+            "created": 1788638821,
+            "owned_by": "exo",
+            "hugging_face_id": "mlx-community/gpt-oss-20b-MXFP4-Q8",
+            "name": "gpt-oss-20b-MXFP4-Q8",
+            "description": "",
+            "context_length": 131072,
+            "tags": [],
+            "storage_size_megabytes": 11469,
+            "supports_tensor": true,
+            "tasks": [
+                "TextGeneration"
+            ],
+            "is_custom": false,
+            "family": "gpt-oss",
+            "quantization": "MXFP4-Q8",
+            "base_model": "GPT-OSS 20B",
+            "capabilities": [
+                "text",
+                "thinking"
+            ]
+        },
+        {
+            "id": "mlx-community/NVIDIA-Nemotron-3-Nano-30B-A3B-MLX-BF16",
+            "object": "model",
+            "created": 1788638821,
+            "owned_by": "exo",
+            "hugging_face_id": "mlx-community/NVIDIA-Nemotron-3-Nano-30B-A3B-MLX-BF16",
+            "name": "NVIDIA-Nemotron-3-Nano-30B-A3B-MLX-BF16",
+            "description": "",
+            "context_length": 262144,
+            "tags": [],
+            "storage_size_megabytes": 60230,
+            "supports_tensor": true,
+            "tasks": [
+                "TextGeneration"
+            ],
+            "is_custom": false,
+            "family": "nemotron",
+            "quantization": "bf16",
+            "base_model": "NVIDIA Nemotron-3-Nano-30B-A3B",
+            "capabilities": [
+                "text"
+            ]
+        },
+        {
+            "id": "mlx-community/gemma-4-31b-it-bf16",
+            "object": "model",
+            "created": 1788638821,
+            "owned_by": "exo",
+            "hugging_face_id": "mlx-community/gemma-4-31b-it-bf16",
+            "name": "gemma-4-31b-it-bf16",
+            "description": "",
+            "context_length": 262144,
+            "tags": [],
+            "storage_size_megabytes": 59649,
+            "supports_tensor": true,
+            "tasks": [
+                "TextGeneration"
+            ],
+            "is_custom": false,
+            "family": "gemma",
+            "quantization": "bf16",
+            "base_model": "Gemma 4 31B",
+            "capabilities": [
+                "text",
+                "vision"
+            ]
+        },
+        {
+            "id": "mlx-community/MiniMax-M2.1-3bit",
+            "object": "model",
+            "created": 1788638821,
+            "owned_by": "exo",
+            "hugging_face_id": "mlx-community/MiniMax-M2.1-3bit",
+            "name": "MiniMax-M2.1-3bit",
+            "description": "",
+            "context_length": 196608,
+            "tags": [],
+            "storage_size_megabytes": 95450,
+            "supports_tensor": true,
+            "tasks": [
+                "TextGeneration"
+            ],
+            "is_custom": false,
+            "family": "minimax",
+            "quantization": "3bit",
+            "base_model": "MiniMax M2.1",
+            "capabilities": [
+                "text",
+                "thinking",
+                "thinking_toggle"
+            ]
+        },
+        {
+            "id": "mlx-community/Qwen3.5-397B-A17B-6bit",
+            "object": "model",
+            "created": 1788638821,
+            "owned_by": "exo",
+            "hugging_face_id": "mlx-community/Qwen3.5-397B-A17B-6bit",
+            "name": "Qwen3.5-397B-A17B-6bit",
+            "description": "",
+            "context_length": 262144,
+            "tags": [],
+            "storage_size_megabytes": 307986,
+            "supports_tensor": true,
+            "tasks": [
+                "TextGeneration"
+            ],
+            "is_custom": false,
+            "family": "qwen",
+            "quantization": "6bit",
+            "base_model": "Qwen3.5 397B A17B",
+            "capabilities": [
+                "text",
+                "thinking",
+                "thinking_toggle",
+                "vision"
+            ]
+        },
+        {
+            "id": "mlx-community/Qwen3-0.6B-4bit",
+            "object": "model",
+            "created": 1788638821,
+            "owned_by": "exo",
+            "hugging_face_id": "mlx-community/Qwen3-0.6B-4bit",
+            "name": "Qwen3-0.6B-4bit",
+            "description": "",
+            "context_length": 32768,
+            "tags": [],
+            "storage_size_megabytes": 327,
+            "supports_tensor": false,
+            "tasks": [
+                "TextGeneration"
+            ],
+            "is_custom": false,
+            "family": "qwen",
+            "quantization": "4bit",
+            "base_model": "Qwen3 0.6B",
+            "capabilities": [
+                "text",
+                "thinking",
+                "thinking_toggle"
+            ]
+        },
+        {
+            "id": "mlx-community/GLM-5",
+            "object": "model",
+            "created": 1788638821,
+            "owned_by": "exo",
+            "hugging_face_id": "mlx-community/GLM-5",
+            "name": "GLM-5",
+            "description": "",
+            "context_length": 202752,
+            "tags": [],
+            "storage_size_megabytes": 1418898,
+            "supports_tensor": true,
+            "tasks": [
+                "TextGeneration"
+            ],
+            "is_custom": false,
+            "family": "glm",
+            "quantization": "bf16",
+            "base_model": "GLM-5",
+            "capabilities": [
+                "text",
+                "thinking"
+            ]
+        },
+        {
+            "id": "mlx-community/NVIDIA-Nemotron-Nano-9B-v2-4bits",
+            "object": "model",
+            "created": 1788638821,
+            "owned_by": "exo",
+            "hugging_face_id": "mlx-community/NVIDIA-Nemotron-Nano-9B-v2-4bits",
+            "name": "NVIDIA-Nemotron-Nano-9B-v2-4bits",
+            "description": "",
+            "context_length": 131072,
+            "tags": [],
+            "storage_size_megabytes": 4771,
+            "supports_tensor": true,
+            "tasks": [
+                "TextGeneration"
+            ],
+            "is_custom": false,
+            "family": "nemotron",
+            "quantization": "4bit",
+            "base_model": "NVIDIA Nemotron-Nano-9B-v2",
+            "capabilities": [
+                "text"
+            ]
+        },
+        {
+            "id": "mlx-community/gemma-4-26b-a4b-it-bf16",
+            "object": "model",
+            "created": 1788638821,
+            "owned_by": "exo",
+            "hugging_face_id": "mlx-community/gemma-4-26b-a4b-it-bf16",
+            "name": "gemma-4-26b-a4b-it-bf16",
+            "description": "",
+            "context_length": 262144,
+            "tags": [],
+            "storage_size_megabytes": 49221,
+            "supports_tensor": true,
+            "tasks": [
+                "TextGeneration"
+            ],
+            "is_custom": false,
+            "family": "gemma",
+            "quantization": "bf16",
+            "base_model": "Gemma 4 26B A4B",
+            "capabilities": [
+                "text",
+                "vision"
+            ]
+        },
+        {
+            "id": "mlx-community/Meta-Llama-3.1-70B-Instruct-4bit",
+            "object": "model",
+            "created": 1788638821,
+            "owned_by": "exo",
+            "hugging_face_id": "mlx-community/Meta-Llama-3.1-70B-Instruct-4bit",
+            "name": "Meta-Llama-3.1-70B-Instruct-4bit",
+            "description": "",
+            "context_length": 131072,
+            "tags": [],
+            "storage_size_megabytes": 38769,
+            "supports_tensor": true,
+            "tasks": [
+                "TextGeneration"
+            ],
+            "is_custom": false,
+            "family": "llama",
+            "quantization": "4bit",
+            "base_model": "Llama 3.1 70B",
+            "capabilities": [
+                "text"
+            ]
+        },
+        {
+            "id": "mlx-community/Qwen3.5-35B-A3B-4bit",
+            "object": "model",
+            "created": 1788638821,
+            "owned_by": "exo",
+            "hugging_face_id": "mlx-community/Qwen3.5-35B-A3B-4bit",
+            "name": "Qwen3.5-35B-A3B-4bit",
+            "description": "",
+            "context_length": 262144,
+            "tags": [],
+            "storage_size_megabytes": 19447,
+            "supports_tensor": true,
+            "tasks": [
+                "TextGeneration"
+            ],
+            "is_custom": false,
+            "family": "qwen",
+            "quantization": "4bit",
+            "base_model": "Qwen3.5 35B A3B",
+            "capabilities": [
+                "text",
+                "thinking",
+                "thinking_toggle",
+                "vision"
+            ]
+        },
+        {
+            "id": "mlx-community/MiniMax-M2.1-8bit",
+            "object": "model",
+            "created": 1788638821,
+            "owned_by": "exo",
+            "hugging_face_id": "mlx-community/MiniMax-M2.1-8bit",
+            "name": "MiniMax-M2.1-8bit",
+            "description": "",
+            "context_length": 196608,
+            "tags": [],
+            "storage_size_megabytes": 231730,
+            "supports_tensor": true,
+            "tasks": [
+                "TextGeneration"
+            ],
+            "is_custom": false,
+            "family": "minimax",
+            "quantization": "8bit",
+            "base_model": "MiniMax M2.1",
+            "capabilities": [
+                "text",
+                "thinking",
+                "thinking_toggle"
+            ]
+        },
+        {
+            "id": "mlx-community/gemma-4-e2b-it-6bit",
+            "object": "model",
+            "created": 1788638821,
+            "owned_by": "exo",
+            "hugging_face_id": "mlx-community/gemma-4-e2b-it-6bit",
+            "name": "gemma-4-e2b-it-6bit",
+            "description": "",
+            "context_length": 131072,
+            "tags": [],
+            "storage_size_megabytes": 4520,
+            "supports_tensor": true,
+            "tasks": [
+                "TextGeneration"
+            ],
+            "is_custom": false,
+            "family": "gemma",
+            "quantization": "6bit",
+            "base_model": "Gemma 4 E2B",
+            "capabilities": [
+                "text",
+                "vision"
+            ]
+        },
+        {
+            "id": "mlx-community/Qwen3.5-27B-8bit",
+            "object": "model",
+            "created": 1788638821,
+            "owned_by": "exo",
+            "hugging_face_id": "mlx-community/Qwen3.5-27B-8bit",
+            "name": "Qwen3.5-27B-8bit",
+            "description": "",
+            "context_length": 262144,
+            "tags": [],
+            "storage_size_megabytes": 28134,
+            "supports_tensor": true,
+            "tasks": [
+                "TextGeneration"
+            ],
+            "is_custom": false,
+            "family": "qwen",
+            "quantization": "8bit",
+            "base_model": "Qwen3.5 27B",
+            "capabilities": [
+                "text",
+                "thinking",
+                "thinking_toggle",
+                "vision"
+            ]
+        },
+        {
+            "id": "mlx-community/Kimi-K2-Thinking",
+            "object": "model",
+            "created": 1788638821,
+            "owned_by": "exo",
+            "hugging_face_id": "mlx-community/Kimi-K2-Thinking",
+            "name": "Kimi-K2-Thinking",
+            "description": "",
+            "context_length": 262144,
+            "tags": [],
+            "storage_size_megabytes": 673792,
+            "supports_tensor": true,
+            "tasks": [
+                "TextGeneration"
+            ],
+            "is_custom": false,
+            "family": "kimi",
+            "quantization": "",
+            "base_model": "Kimi K2",
+            "capabilities": [
+                "text",
+                "thinking",
+                "thinking_toggle"
+            ]
+        },
+        {
+            "id": "mlx-community/Qwen3-Coder-Next-bf16",
+            "object": "model",
+            "created": 1788638821,
+            "owned_by": "exo",
+            "hugging_face_id": "mlx-community/Qwen3-Coder-Next-bf16",
+            "name": "Qwen3-Coder-Next-bf16",
+            "description": "",
+            "context_length": 262144,
+            "tags": [],
+            "storage_size_megabytes": 150250,
+            "supports_tensor": true,
+            "tasks": [
+                "TextGeneration"
+            ],
+            "is_custom": false,
+            "family": "qwen",
+            "quantization": "bf16",
+            "base_model": "Qwen3 Coder Next",
+            "capabilities": [
+                "text",
+                "code"
+            ]
+        },
+        {
+            "id": "mlx-community/DeepSeek-V3.2-4bit",
+            "object": "model",
+            "created": 1788638821,
+            "owned_by": "exo",
+            "hugging_face_id": "mlx-community/DeepSeek-V3.2-4bit",
+            "name": "DeepSeek-V3.2-4bit",
+            "description": "",
+            "context_length": 131072,
+            "tags": [],
+            "storage_size_megabytes": 360571,
+            "supports_tensor": true,
+            "tasks": [
+                "TextGeneration"
+            ],
+            "is_custom": false,
+            "family": "deepseek",
+            "quantization": "4bit",
+            "base_model": "DeepSeek V3.2",
+            "capabilities": [
+                "text",
+                "thinking",
+                "thinking_toggle"
+            ]
+        },
+        {
+            "id": "mlx-community/NVIDIA-Nemotron-Nano-9B-v2-6bit",
+            "object": "model",
+            "created": 1788638821,
+            "owned_by": "exo",
+            "hugging_face_id": "mlx-community/NVIDIA-Nemotron-Nano-9B-v2-6bit",
+            "name": "NVIDIA-Nemotron-Nano-9B-v2-6bit",
+            "description": "",
+            "context_length": 131072,
+            "tags": [],
+            "storage_size_megabytes": 6890,
+            "supports_tensor": true,
+            "tasks": [
+                "TextGeneration"
+            ],
+            "is_custom": false,
+            "family": "nemotron",
+            "quantization": "6bit",
+            "base_model": "NVIDIA Nemotron-Nano-9B-v2",
+            "capabilities": [
+                "text"
+            ]
+        },
+        {
+            "id": "mlx-community/Meta-Llama-3.1-8B-Instruct-bf16",
+            "object": "model",
+            "created": 1788638821,
+            "owned_by": "exo",
+            "hugging_face_id": "mlx-community/Meta-Llama-3.1-8B-Instruct-bf16",
+            "name": "Meta-Llama-3.1-8B-Instruct-bf16",
+            "description": "",
+            "context_length": 131072,
+            "tags": [],
+            "storage_size_megabytes": 16100,
+            "supports_tensor": true,
+            "tasks": [
+                "TextGeneration"
+            ],
+            "is_custom": false,
+            "family": "llama",
+            "quantization": "bf16",
+            "base_model": "Llama 3.1 8B",
+            "capabilities": [
+                "text"
+            ]
+        },
+        {
+            "id": "mlx-community/gemma-4-e4b-it-bf16",
+            "object": "model",
+            "created": 1788638821,
+            "owned_by": "exo",
+            "hugging_face_id": "mlx-community/gemma-4-e4b-it-bf16",
+            "name": "gemma-4-e4b-it-bf16",
+            "description": "",
+            "context_length": 131072,
+            "tags": [],
+            "storage_size_megabytes": 15251,
+            "supports_tensor": true,
+            "tasks": [
+                "TextGeneration"
+            ],
+            "is_custom": false,
+            "family": "gemma",
+            "quantization": "bf16",
+            "base_model": "Gemma 4 E4B",
+            "capabilities": [
+                "text",
+                "vision"
+            ]
+        },
+        {
+            "id": "mlx-community/Qwen3.5-397B-A17B-4bit",
+            "object": "model",
+            "created": 1788638821,
+            "owned_by": "exo",
+            "hugging_face_id": "mlx-community/Qwen3.5-397B-A17B-4bit",
+            "name": "Qwen3.5-397B-A17B-4bit",
+            "description": "",
+            "context_length": 262144,
+            "tags": [],
+            "storage_size_megabytes": 213490,
+            "supports_tensor": true,
+            "tasks": [
+                "TextGeneration"
+            ],
+            "is_custom": false,
+            "family": "qwen",
+            "quantization": "4bit",
+            "base_model": "Qwen3.5 397B A17B",
+            "capabilities": [
+                "text",
+                "thinking",
+                "thinking_toggle",
+                "vision"
+            ]
+        },
+        {
+            "id": "mlx-community/GLM-4.5-Air-bf16",
+            "object": "model",
+            "created": 1788638821,
+            "owned_by": "exo",
+            "hugging_face_id": "mlx-community/GLM-4.5-Air-bf16",
+            "name": "GLM-4.5-Air-bf16",
+            "description": "",
+            "context_length": 131072,
+            "tags": [],
+            "storage_size_megabytes": 219136,
+            "supports_tensor": true,
+            "tasks": [
+                "TextGeneration"
+            ],
+            "is_custom": false,
+            "family": "glm",
+            "quantization": "bf16",
+            "base_model": "GLM 4.5 Air",
+            "capabilities": [
+                "text",
+                "thinking",
+                "thinking_toggle"
+            ]
+        },
+        {
+            "id": "mlx-community/Qwen3-Next-80B-A3B-Instruct-4bit",
+            "object": "model",
+            "created": 1788638821,
+            "owned_by": "exo",
+            "hugging_face_id": "mlx-community/Qwen3-Next-80B-A3B-Instruct-4bit",
+            "name": "Qwen3-Next-80B-A3B-Instruct-4bit",
+            "description": "",
+            "context_length": 262144,
+            "tags": [],
+            "storage_size_megabytes": 44800,
+            "supports_tensor": true,
+            "tasks": [
+                "TextGeneration"
+            ],
+            "is_custom": false,
+            "family": "qwen",
+            "quantization": "4bit",
+            "base_model": "Qwen3 Next 80B",
+            "capabilities": [
+                "text"
+            ]
+        },
+        {
+            "id": "mlx-community/NVIDIA-Nemotron-3-Nano-30B-A3B-NVFP4",
+            "object": "model",
+            "created": 1788638821,
+            "owned_by": "exo",
+            "hugging_face_id": "mlx-community/NVIDIA-Nemotron-3-Nano-30B-A3B-NVFP4",
+            "name": "NVIDIA-Nemotron-3-Nano-30B-A3B-NVFP4",
+            "description": "",
+            "context_length": 262144,
+            "tags": [],
+            "storage_size_megabytes": 18429,
+            "supports_tensor": true,
+            "tasks": [
+                "TextGeneration"
+            ],
+            "is_custom": false,
+            "family": "nemotron",
+            "quantization": "4bit",
+            "base_model": "NVIDIA Nemotron-3-Nano-30B-A3B",
+            "capabilities": [
+                "text"
+            ]
+        },
+        {
+            "id": "mlx-community/Qwen3.6-27B-8bit",
+            "object": "model",
+            "created": 1788638821,
+            "owned_by": "exo",
+            "hugging_face_id": "mlx-community/Qwen3.6-27B-8bit",
+            "name": "Qwen3.6-27B-8bit",
+            "description": "",
+            "context_length": 262144,
+            "tags": [],
+            "storage_size_megabytes": 28134,
+            "supports_tensor": true,
+            "tasks": [
+                "TextGeneration"
+            ],
+            "is_custom": false,
+            "family": "qwen",
+            "quantization": "8bit",
+            "base_model": "Qwen3.6 27B",
+            "capabilities": [
+                "text",
+                "thinking",
+                "thinking_toggle",
+                "vision"
+            ]
+        },
+        {
+            "id": "mlx-community/Llama-3.3-70B-Instruct-8bit",
+            "object": "model",
+            "created": 1788638821,
+            "owned_by": "exo",
+            "hugging_face_id": "mlx-community/Llama-3.3-70B-Instruct-8bit",
+            "name": "Llama-3.3-70B-Instruct-8bit",
+            "description": "",
+            "context_length": 131072,
+            "tags": [],
+            "storage_size_megabytes": 73242,
+            "supports_tensor": true,
+            "tasks": [
+                "TextGeneration"
+            ],
+            "is_custom": false,
+            "family": "llama",
+            "quantization": "8bit",
+            "base_model": "Llama 3.3 70B",
+            "capabilities": [
+                "text"
+            ]
+        },
+        {
+            "id": "mlx-community/GLM-5.1-MXFP4-Q8",
+            "object": "model",
+            "created": 1788638821,
+            "owned_by": "exo",
+            "hugging_face_id": "mlx-community/GLM-5.1-MXFP4-Q8",
+            "name": "GLM-5.1-MXFP4-Q8",
+            "description": "",
+            "context_length": 202752,
+            "tags": [],
+            "storage_size_megabytes": 386696,
+            "supports_tensor": true,
+            "tasks": [
+                "TextGeneration"
+            ],
+            "is_custom": false,
+            "family": "glm",
+            "quantization": "MXFP4-Q8",
+            "base_model": "GLM-5.1",
+            "capabilities": [
+                "text",
+                "thinking"
+            ]
+        },
+        {
+            "id": "mlx-community/Qwen3-Coder-480B-A35B-Instruct-8bit",
+            "object": "model",
+            "created": 1788638821,
+            "owned_by": "exo",
+            "hugging_face_id": "mlx-community/Qwen3-Coder-480B-A35B-Instruct-8bit",
+            "name": "Qwen3-Coder-480B-A35B-Instruct-8bit",
+            "description": "",
+            "context_length": 262144,
+            "tags": [],
+            "storage_size_megabytes": 552960,
+            "supports_tensor": true,
+            "tasks": [
+                "TextGeneration"
+            ],
+            "is_custom": false,
+            "family": "qwen",
+            "quantization": "8bit",
+            "base_model": "Qwen3 Coder 480B",
+            "capabilities": [
+                "text",
+                "code"
+            ]
+        },
+        {
+            "id": "mlx-community/MiniMax-M2.5-6bit",
+            "object": "model",
+            "created": 1788638821,
+            "owned_by": "exo",
+            "hugging_face_id": "mlx-community/MiniMax-M2.5-6bit",
+            "name": "MiniMax-M2.5-6bit",
+            "description": "",
+            "context_length": 196608,
+            "tags": [],
+            "storage_size_megabytes": 177218,
+            "supports_tensor": true,
+            "tasks": [
+                "TextGeneration"
+            ],
+            "is_custom": false,
+            "family": "minimax",
+            "quantization": "6bit",
+            "base_model": "MiniMax M2.5",
+            "capabilities": [
+                "text",
+                "thinking"
+            ]
+        },
+        {
+            "id": "mlx-community/MiniMax-M2.7-8bit",
+            "object": "model",
+            "created": 1788638821,
+            "owned_by": "exo",
+            "hugging_face_id": "mlx-community/MiniMax-M2.7-8bit",
+            "name": "MiniMax-M2.7-8bit",
+            "description": "",
+            "context_length": 196608,
+            "tags": [],
+            "storage_size_megabytes": 231745,
+            "supports_tensor": true,
+            "tasks": [
+                "TextGeneration"
+            ],
+            "is_custom": false,
+            "family": "minimax",
+            "quantization": "8bit",
+            "base_model": "MiniMax M2.7",
+            "capabilities": [
+                "text",
+                "thinking"
+            ]
+        },
+        {
+            "id": "mlx-community/Qwen3.5-122B-A10B-8bit",
+            "object": "model",
+            "created": 1788638821,
+            "owned_by": "exo",
+            "hugging_face_id": "mlx-community/Qwen3.5-122B-A10B-8bit",
+            "name": "Qwen3.5-122B-A10B-8bit",
+            "description": "",
+            "context_length": 262144,
+            "tags": [],
+            "storage_size_megabytes": 124596,
+            "supports_tensor": true,
+            "tasks": [
+                "TextGeneration"
+            ],
+            "is_custom": false,
+            "family": "qwen",
+            "quantization": "8bit",
+            "base_model": "Qwen3.5 122B A10B",
+            "capabilities": [
+                "text",
+                "thinking",
+                "thinking_toggle",
+                "vision"
+            ]
+        },
+        {
+            "id": "mlx-community/Kimi-K2-Instruct-4bit",
+            "object": "model",
+            "created": 1788638821,
+            "owned_by": "exo",
+            "hugging_face_id": "mlx-community/Kimi-K2-Instruct-4bit",
+            "name": "Kimi-K2-Instruct-4bit",
+            "description": "",
+            "context_length": 131072,
+            "tags": [],
+            "storage_size_megabytes": 591872,
+            "supports_tensor": true,
+            "tasks": [
+                "TextGeneration"
+            ],
+            "is_custom": false,
+            "family": "kimi",
+            "quantization": "4bit",
+            "base_model": "Kimi K2",
+            "capabilities": [
+                "text"
+            ]
+        },
+        {
+            "id": "mlx-community/Llama-3.1-Nemotron-70B-Instruct-HF-4bit",
+            "object": "model",
+            "created": 1788638821,
+            "owned_by": "exo",
+            "hugging_face_id": "mlx-community/Llama-3.1-Nemotron-70B-Instruct-HF-4bit",
+            "name": "Llama-3.1-Nemotron-70B-Instruct-HF-4bit",
+            "description": "",
+            "context_length": 131072,
+            "tags": [],
+            "storage_size_megabytes": 37850,
+            "supports_tensor": true,
+            "tasks": [
+                "TextGeneration"
+            ],
+            "is_custom": false,
+            "family": "llama",
+            "quantization": "4bit",
+            "base_model": "NVIDIA Llama-3.1-Nemotron-70B-Instruct",
+            "capabilities": [
+                "text"
+            ]
+        },
+        {
+            "id": "mlx-community/Qwen3-Next-80B-A3B-Thinking-8bit",
+            "object": "model",
+            "created": 1788638821,
+            "owned_by": "exo",
+            "hugging_face_id": "mlx-community/Qwen3-Next-80B-A3B-Thinking-8bit",
+            "name": "Qwen3-Next-80B-A3B-Thinking-8bit",
+            "description": "",
+            "context_length": 262144,
+            "tags": [],
+            "storage_size_megabytes": 84700,
+            "supports_tensor": true,
+            "tasks": [
+                "TextGeneration"
+            ],
+            "is_custom": false,
+            "family": "qwen",
+            "quantization": "8bit",
+            "base_model": "Qwen3 Next 80B",
+            "capabilities": [
+                "text",
+                "thinking",
+                "thinking_toggle"
+            ]
+        },
+        {
+            "id": "mlx-community/DeepSeek-V3.1-8bit",
+            "object": "model",
+            "created": 1788638821,
+            "owned_by": "exo",
+            "hugging_face_id": "mlx-community/DeepSeek-V3.1-8bit",
+            "name": "DeepSeek-V3.1-8bit",
+            "description": "",
+            "context_length": 131072,
+            "tags": [],
+            "storage_size_megabytes": 730112,
+            "supports_tensor": true,
+            "tasks": [
+                "TextGeneration"
+            ],
+            "is_custom": false,
+            "family": "deepseek",
+            "quantization": "8bit",
+            "base_model": "DeepSeek V3.1",
+            "capabilities": [
+                "text",
+                "thinking",
+                "thinking_toggle"
+            ]
+        },
+        {
+            "id": "mlx-community/GLM-5-8bit-MXFP8",
+            "object": "model",
+            "created": 1788638821,
+            "owned_by": "exo",
+            "hugging_face_id": "mlx-community/GLM-5-8bit-MXFP8",
+            "name": "GLM-5-8bit-MXFP8",
+            "description": "",
+            "context_length": 202752,
+            "tags": [],
+            "storage_size_megabytes": 753896,
+            "supports_tensor": true,
+            "tasks": [
+                "TextGeneration"
+            ],
+            "is_custom": false,
+            "family": "glm",
+            "quantization": "8bit",
+            "base_model": "GLM-5",
+            "capabilities": [
+                "text",
+                "thinking"
+            ]
+        },
+        {
+            "id": "mlx-community/NVIDIA-Nemotron-3-Nano-30B-A3B-MLX-MXFP4",
+            "object": "model",
+            "created": 1788638821,
+            "owned_by": "exo",
+            "hugging_face_id": "mlx-community/NVIDIA-Nemotron-3-Nano-30B-A3B-MLX-MXFP4",
+            "name": "NVIDIA-Nemotron-3-Nano-30B-A3B-MLX-MXFP4",
+            "description": "",
+            "context_length": 262144,
+            "tags": [],
+            "storage_size_megabytes": 16011,
+            "supports_tensor": true,
+            "tasks": [
+                "TextGeneration"
+            ],
+            "is_custom": false,
+            "family": "nemotron",
+            "quantization": "4bit",
+            "base_model": "NVIDIA Nemotron-3-Nano-30B-A3B",
+            "capabilities": [
+                "text"
+            ]
+        },
+        {
+            "id": "mlx-community/Llama-3.1-Nemotron-Nano-4B-v1.1-8bit",
+            "object": "model",
+            "created": 1788638821,
+            "owned_by": "exo",
+            "hugging_face_id": "mlx-community/Llama-3.1-Nemotron-Nano-4B-v1.1-8bit",
+            "name": "Llama-3.1-Nemotron-Nano-4B-v1.1-8bit",
+            "description": "",
+            "context_length": 131072,
+            "tags": [],
+            "storage_size_megabytes": 4573,
+            "supports_tensor": true,
+            "tasks": [
+                "TextGeneration"
+            ],
+            "is_custom": false,
+            "family": "llama",
+            "quantization": "8bit",
+            "base_model": "NVIDIA Llama-3.1-Nemotron-Nano-4B-v1.1",
+            "capabilities": [
+                "text"
+            ]
+        },
+        {
+            "id": "moonshotai/Kimi-K2.6",
+            "object": "model",
+            "created": 1788638821,
+            "owned_by": "exo",
+            "hugging_face_id": "moonshotai/Kimi-K2.6",
+            "name": "Kimi-K2.6",
+            "description": "",
+            "context_length": 262144,
+            "tags": [],
+            "storage_size_megabytes": 567578,
+            "supports_tensor": true,
+            "tasks": [
+                "TextGeneration"
+            ],
+            "is_custom": false,
+            "family": "kimi",
+            "quantization": "",
+            "base_model": "Kimi K2.6",
+            "capabilities": [
+                "text",
+                "thinking",
+                "thinking_toggle",
+                "vision"
+            ]
+        },
+        {
+            "id": "mlx-community/NVIDIA-Nemotron-3-Nano-30B-A3B-MLX-8Bit",
+            "object": "model",
+            "created": 1788638821,
+            "owned_by": "exo",
+            "hugging_face_id": "mlx-community/NVIDIA-Nemotron-3-Nano-30B-A3B-MLX-8Bit",
+            "name": "NVIDIA-Nemotron-3-Nano-30B-A3B-MLX-8Bit",
+            "description": "",
+            "context_length": 262144,
+            "tags": [],
+            "storage_size_megabytes": 32005,
+            "supports_tensor": true,
+            "tasks": [
+                "TextGeneration"
+            ],
+            "is_custom": false,
+            "family": "nemotron",
+            "quantization": "8bit",
+            "base_model": "NVIDIA Nemotron-3-Nano-30B-A3B",
+            "capabilities": [
+                "text"
+            ]
+        },
+        {
+            "id": "mlx-community/gemma-4-31b-it-8bit",
+            "object": "model",
+            "created": 1788638821,
+            "owned_by": "exo",
+            "hugging_face_id": "mlx-community/gemma-4-31b-it-8bit",
+            "name": "gemma-4-31b-it-8bit",
+            "description": "",
+            "context_length": 262144,
+            "tags": [],
+            "storage_size_megabytes": 32199,
+            "supports_tensor": true,
+            "tasks": [
+                "TextGeneration"
+            ],
+            "is_custom": false,
+            "family": "gemma",
+            "quantization": "8bit",
+            "base_model": "Gemma 4 31B",
+            "capabilities": [
+                "text",
+                "vision"
+            ]
+        }
+    ]
+}
