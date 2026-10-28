@@ -98,7 +98,7 @@ export class AudioManager {
 
   play(id: SoundId): void {
     if (!this.supported || this.volume <= 0) return;
-    if (id === 'cannonHit') { this.playSample('/media/canon-1.mp3'); return; }
+    if (id === 'cannonHit') { this.playSample('./media/canon-1.mp3'); return; }
     const ctx = this.ensureCtx();
     if (!ctx) return;
     if (ctx.state === 'suspended') void ctx.resume();
