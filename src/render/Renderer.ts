@@ -36,15 +36,17 @@ const COLORS = {
  */
 export class Renderer {
   private readonly ctx: CanvasRenderingContext2D;
+  private readonly canvas: HTMLCanvasElement;
   private scale = 1;
   private offsetX = 0;
   private offsetY = 0;
   private dpr = 1;
 
-  constructor(private readonly canvas: HTMLCanvasElement) {
+  constructor(canvas: HTMLCanvasElement) {
     const ctx = canvas.getContext('2d');
     if (!ctx) throw new Error('2D canvas context unavailable');
     this.ctx = ctx;
+    this.canvas = canvas;
   }
 
   /** Recompute backing store size and board transform for the current layout. */
