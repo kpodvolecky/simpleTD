@@ -1,3 +1,28 @@
+# Project instructions
+
+## Architecture
+- Read the existing architecture before making changes.
+- Follow the established module boundaries and design conventions.
+- Do not introduce new dependencies without justification.
+
+## Development
+- Inspect the relevant code and tests before editing.
+- Prefer small, focused changes.
+- Add or update tests for every behavior change.
+- Never weaken or delete tests merely to make them pass.
+
+## Validation
+- Run the relevant tests after every implementation change.
+- Run the full test suite before declaring the task complete.
+- Report exact commands, results, and remaining failures.
+
+## Coordination
+- The orchestrator owns task decomposition and integration.
+- The analyst and reviewer must not modify source files.
+- Do not overwrite unrelated user changes.
+- Do not commit or push unless explicitly requested.
+- Report blockers instead of silently changing requirements.
+
 # SimpleTD Architecture
 
 ## Overview
