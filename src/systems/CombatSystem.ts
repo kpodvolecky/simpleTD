@@ -100,6 +100,13 @@ export class CombatSystem {
 
     const splash = tower.type.splashRadius;
     if (splash > 0) {
+      const cx = primary.cell.x + 0.5;
+      const cy = primary.cell.y + 0.5;
+      if (tower.type.id === 'cannon') {
+        this.effects.createExplosion(cx, cy, tower.type.splashRadius, EFFECT_COLORS.explosion);
+      } else if (tower.type.id === 'frost') {
+        this.effects.createExplosion(cx, cy, tower.type.splashRadius || 1.2, EFFECT_COLORS.slowPulse);
+      }
       for (const e of state.enemies) {
         if (!e.alive) continue;
         const d = state.metricDistance(primary.cell, e.cell);
@@ -118,17 +125,6 @@ export class CombatSystem {
     state.emit('enemyHit');
     if (state.damageNumbersEnabled) {
       this.effects.createDamageNumber(e.id, dmg);
-    }
-
-    // Visual effects based on tower type (§6)
-    if (tower.type.id === 'cannon') {
-      const cx = e.cell.x + 0.5;
-      const cy = e.cell.y + 0.5;
-      this.effects.createExplosion(cx, cy, tower.type.splashRadius, EFFECT_COLORS.explosion);
-    } else if (tower.type.id === 'frost') {
-      const cx = e.cell.x + 0.5;
-      const cy = e.cell.y + 0.5;
-      this.effects.createExplosion(cx, cy, tower.type.splashRadius || 1.2, EFFECT_COLORS.slowPulse);
     }
 
     // Every hit enemy blinks
