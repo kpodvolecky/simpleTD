@@ -1,7 +1,7 @@
 ---
 description: Analyzes architecture, dependencies, code paths and implementation risks. Read-only.
 mode: subagent
-model: lmstudio/qwen3.8-flash-next
+model: lmstudio/qwen3.8-9b-distill
 temperature: 0.1
 permission:
   edit: deny

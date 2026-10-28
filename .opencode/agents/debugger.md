@@ -1,7 +1,7 @@
 ---
 description: Diagnoses failing builds, tests and runtime defects without changing files.
 mode: subagent
-model: lmstudio/qwen3.8-flash-next
+model: lmstudio/qwen/qwen3-4b-2507
 temperature: 0.1
 permission:
   edit: deny

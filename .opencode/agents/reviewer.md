@@ -1,7 +1,7 @@
 ---
 description: Independently reviews changes for defects, regressions, security and test gaps.
 mode: subagent
-model: lmstudio/qwen3.8-flash-next
+model: lmstudio/qwen/qwen3-4b-thinking-2507
 temperature: 0.1
 permission:
   edit: deny
