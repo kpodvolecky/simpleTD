@@ -8,6 +8,7 @@ export interface HudCallbacks {
   onToggleSpeed: () => void;
   onTogglePause: () => void;
   onExit: () => void;
+  onToggleDamageNumbers: () => void;
 }
 
 /**
@@ -59,6 +60,7 @@ export class Hud {
     this.speedBtn = button(controls, '1×', () => this.cb.onToggleSpeed());
     this.pauseBtn = button(controls, 'Pause', () => this.cb.onTogglePause());
     button(controls, 'Menu', () => this.cb.onExit());
+    button(controls, 'Dmg#', () => this.cb.onToggleDamageNumbers());
     this.root.appendChild(controls);
 
     const palette = document.createElement('div');

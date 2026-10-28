@@ -155,6 +155,20 @@ export class Renderer {
     }
     ctx.globalAlpha = 1;
 
+    // Damage numbers.
+    for (const dn of game.effects.getState().damageNumbers) {
+      const age = performance.now() - dn.createdAt;
+      let alpha = 1;
+      if (age > 3000) alpha = Math.max(0, 1 - (age - 3000) / 1000);
+      const yOff = - (age / 1000) * 0.3;
+      ctx.globalAlpha = alpha;
+      ctx.fillStyle = 'red';
+      ctx.font = 'bold 12px sans-serif';
+      ctx.textAlign = 'center';
+      ctx.fillText(String(dn.amount), dn.x * cs, (dn.y + yOff) * cs);
+    }
+    ctx.globalAlpha = 1;
+
     // Projectiles.
     ctx.strokeStyle = COLORS.projectile;
     ctx.lineWidth = 2;

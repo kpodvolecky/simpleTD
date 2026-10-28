@@ -44,6 +44,7 @@ export class GameState {
   lives: number;
   status: GameStatus = 'building';
   speed = 1;
+  damageNumbersEnabled = true;
 
   /** True once every wave has been fully spawned (§3.5 win check). */
   allWavesSpawned = false;

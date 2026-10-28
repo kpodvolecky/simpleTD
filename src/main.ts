@@ -124,6 +124,7 @@ function startLevel(index: number): void {
     },
     onToggleSpeed: toggleSpeed,
     onTogglePause: togglePause,
+    onToggleDamageNumbers: () => { if (game) game.state.damageNumbersEnabled = !game.state.damageNumbersEnabled; },
     onExit: showMenu,
   });
 

@@ -3,6 +3,7 @@ export enum EffectType {
   EXPLOSION = 'explosion',
   SLOW_PULSE = 'slow_pulse',
   ENEMY_BLINK = 'enemy_blink',
+  DAMAGE_NUMBER = 'damage_number',
 }
 
 /** Base effect with position and lifetime. */
@@ -29,10 +30,19 @@ interface EnemyBlinkEffect {
   blinkCount: number;
 }
 
+interface DamageNumberEffect {
+  type: EffectType.DAMAGE_NUMBER;
+  x: number;
+  y: number;
+  amount: number;
+  createdAt: number;
+}
+
 /** All active effects. */
 export interface EffectsState {
   explosions: Map<number, ExplosionEffect>;
   enemyBlinks: EnemyBlinkEffect[];
+  damageNumbers: DamageNumberEffect[];
 }
 
 /** Effect colors for explosions (defined in balance.ts). */
@@ -44,6 +54,7 @@ export const EFFECT_COLORS = {
 export class EffectsManager {
   private readonly explosions: Map<number, ExplosionEffect> = new Map();
   private readonly enemyBlinks: EnemyBlinkEffect[] = [];
+  private readonly damageNumbers: DamageNumberEffect[] = [];
 
   /** Create an explosion/splash effect at a position. */
   createExplosion(x: number, y: number, radius: number, color: string): void {
@@ -74,6 +85,17 @@ export class EffectsManager {
     });
   }
 
+  /** Create a damage number effect above an enemy. */
+  createDamageNumber(x: number, y: number, amount: number): void {
+    this.damageNumbers.push({
+      type: EffectType.DAMAGE_NUMBER,
+      x,
+      y,
+      amount,
+      createdAt: performance.now(),
+    });
+  }
+
   /** Update all effects for a single frame. */
   update(): void {
     const now = performance.now();
@@ -86,6 +108,12 @@ export class EffectsManager {
       } else {
         effect.alpha = Math.max(0, 1 - age / 400);
       }
+    }
+
+    // Update damage numbers (3s + 1s fade)
+    for (let i = this.damageNumbers.length - 1; i >= 0; i--) {
+      const dn = this.damageNumbers[i];
+      if (now - dn.createdAt >= 4000) this.damageNumbers.splice(i, 1);
     }
 
     // Update enemy blinks (2 blinks per hit, ~500ms total)
@@ -108,6 +136,7 @@ export class EffectsManager {
     return {
       explosions: new Map(this.explosions),
       enemyBlinks: [...this.enemyBlinks],
+      damageNumbers: [...this.damageNumbers],
     };
   }
 
@@ -126,5 +155,6 @@ export class EffectsManager {
   clear(): void {
     this.explosions.clear();
     this.enemyBlinks.length = 0;
+    this.damageNumbers.length = 0;
   }
 }

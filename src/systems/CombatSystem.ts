@@ -116,6 +116,9 @@ export class CombatSystem {
     const dmg = computeDamage(tower.type.damage, e.type.armor);
     e.hp -= dmg;
     state.emit('enemyHit');
+    if (state.damageNumbersEnabled) {
+      this.effects.createDamageNumber(e.cell.x + 0.5, e.cell.y - 0.2, dmg);
+    }
 
     // Visual effects based on tower type (§6)
     if (tower.type.id === 'cannon') {
