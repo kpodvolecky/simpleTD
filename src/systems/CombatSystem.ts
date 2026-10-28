@@ -101,8 +101,9 @@ export class CombatSystem {
 
     const splash = tower.type.splashRadius;
     if (splash > 0) {
-      const cx = primary.cell.x + 0.5;
-      const cy = primary.cell.y + 0.5;
+      const ip = primary.interpolatedPosition();
+      const cx = ip.x + 0.5;
+      const cy = ip.y + 0.5;
       if (tower.type.id === 'cannon') {
         this.effects.createExplosion(cx, cy, tower.type.splashRadius, EFFECT_COLORS.explosion);
       } else if (tower.type.id === 'frost') {
