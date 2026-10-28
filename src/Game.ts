@@ -24,7 +24,7 @@ export class Game {
   readonly spawn = new SpawnSystem();
   private readonly movement = new MovementSystem();
   readonly effects = new EffectsManager();
-  private readonly combat = new CombatSystem(this.effects, this.audio);
+  private combat!: CombatSystem;
   private readonly economy = new EconomySystem();
 
   private audio?: AudioManager;
@@ -36,6 +36,7 @@ export class Game {
   ) {
     this.audio = audio;
     this.state = new GameState(level, enemyTypes, towerTypes);
+    (this as any).combat = new CombatSystem(this.effects, this.audio);
   }
 
   /** Advance the simulation by one fixed step. */
