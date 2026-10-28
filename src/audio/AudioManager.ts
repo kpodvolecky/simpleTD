@@ -99,6 +99,7 @@ export class AudioManager {
   play(id: SoundId): void {
     if (!this.supported || this.volume <= 0) return;
     if (id === 'arrowHit') { this.playSample('./media/arrow-1.mp3'); return; }
+    if (id === 'frostHit') { this.playSample('./media/frost-1.mp3'); return; }
     if (id === 'cannonHit') { this.playSample('./media/canon-1.mp3'); return; }
     if (id === 'sniperHit') { this.playSample('./media/sniper-1.mp3'); return; }
     const ctx = this.ensureCtx();
