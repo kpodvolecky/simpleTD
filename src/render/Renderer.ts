@@ -134,12 +134,26 @@ export class Renderer {
       const iy = e.cell.y + (e.nextCell.y - e.cell.y) * e.progress;
       const cx = ix * cs + cs / 2;
       const cy = iy * cs + cs / 2;
-      ctx.fillStyle = this.enemyColor(e.type.id);
+      const blinking = game.effects.isEnemyBlinking(e.id);
+      ctx.fillStyle = blinking ? '#ffffff' : this.enemyColor(e.type.id);
       ctx.beginPath();
       ctx.arc(cx, cy, cs * 0.26, 0, Math.PI * 2);
       ctx.fill();
       this.drawBar(cx - cs * 0.3, cy - cs * 0.4, cs * 0.6, cs * 0.07, e.hp / e.maxHp);
     }
+
+    // Effects: explosions.
+    for (const eff of game.effects.getState().explosions.values()) {
+      const age = performance.now() - eff.createdAt;
+      const t = Math.min(1, age / 400);
+      const r = eff.radius * cs * t;
+      ctx.globalAlpha = Math.max(0, 1 - t);
+      ctx.fillStyle = eff.color;
+      ctx.beginPath();
+      ctx.arc(eff.x * cs, eff.y * cs, r, 0, Math.PI * 2);
+      ctx.fill();
+    }
+    ctx.globalAlpha = 1;
 
     // Projectiles.
     ctx.strokeStyle = COLORS.projectile;

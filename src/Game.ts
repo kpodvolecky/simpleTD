@@ -2,6 +2,7 @@ import { GameState } from './engine/GameState';
 import { MovementSystem } from './systems/MovementSystem';
 import { CombatSystem } from './systems/CombatSystem';
 import { SpawnSystem } from './systems/SpawnSystem';
+import { EffectsManager } from './render/EffectsManager';
 import { EconomySystem } from './systems/EconomySystem';
 import { wouldBlockRoute } from './engine/Pathfinding';
 import { Tower } from './entities/Tower';
@@ -21,7 +22,8 @@ export class Game {
   readonly state: GameState;
   readonly spawn = new SpawnSystem();
   private readonly movement = new MovementSystem();
-  private readonly combat = new CombatSystem();
+  readonly effects = new EffectsManager();
+  private readonly combat = new CombatSystem(this.effects);
   private readonly economy = new EconomySystem();
 
   constructor(
