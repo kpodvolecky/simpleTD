@@ -24,6 +24,14 @@ export const balance = {
 } as const;
 
 /**
+ * Effect colors for visual feedback (§6).
+ */
+export const EFFECT_COLORS = {
+  explosion: 'rgba(255, 0, 0, 0.6)',    // Red for cannon splash
+  slowPulse: 'rgba(0, 100, 255, 0.4)', // Blue for frost splash
+};
+
+/**
  * Percentage-armor damage model (§5):
  * damage_dealt = max(1, damage * (1 - armor/100)), with a minimum floor of 1.
  */

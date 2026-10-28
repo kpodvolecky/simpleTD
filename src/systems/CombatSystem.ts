@@ -1,8 +1,9 @@
 import { GameState } from '../engine/GameState';
 import { Enemy } from '../entities/Enemy';
 import { Tower } from '../entities/Tower';
-import { computeDamage, inRange } from '../config/balance';
+import { computeDamage, inRange, EFFECT_COLORS } from '../config/balance';
 import type { TargetingStrategy, Vec2 } from '../types';
+import { EffectsManager } from '../render/EffectsManager';
 
 /**
  * Resolves all combat each tick (§3.3/§3.4/§5): towers firing at enemies, and
@@ -11,7 +12,10 @@ import type { TargetingStrategy, Vec2 } from '../types';
  * overkill is wasted with no carry-over (§3.3 simultaneity).
  */
 export class CombatSystem {
+  constructor(private readonly effects: EffectsManager = new EffectsManager()) {}
+
   update(state: GameState, dt: number): void {
+    this.effects.update();
     this.towersFire(state, dt);
     this.enemiesAttackTowers(state, dt);
   }
@@ -112,15 +116,30 @@ export class CombatSystem {
     const dmg = computeDamage(tower.type.damage, e.type.armor);
     e.hp -= dmg;
     state.emit('enemyHit');
+
+    // Visual effects based on tower type (§6)
+    if (tower.type.id === 'cannon') {
+      const cx = e.cell.x + 0.5;
+      const cy = e.cell.y + 0.5;
+      this.effects.createExplosion(cx, cy, tower.type.splashRadius, EFFECT_COLORS.explosion);
+    } else if (tower.type.id === 'frost') {
+      const cx = e.cell.x + 0.5;
+      const cy = e.cell.y + 0.5;
+      this.effects.createExplosion(cx, cy, tower.type.splashRadius || 1.2, EFFECT_COLORS.slowPulse);
+    }
+
+    // Every hit enemy blinks
+    this.effects.triggerEnemyBlink(e.id);
+
     // Slow always targets only enemies (§5.1); separate from HP damage.
     if (tower.type.slowPct > 0 && tower.type.slowDurationMs > 0) {
       if (tower.type.slowPct >= e.slowPct) e.slowPct = tower.type.slowPct;
-      e.slowRemainingMs = tower.type.slowDurationMs; // refresh on every hit
+      e.slowRemainingMs = tower.type.slowDurationMs;
     }
     if (e.hp <= 0) {
       e.hp = 0;
       e.alive = false;
-      state.currency += e.bounty; // bounty fixed at spawn (§3.5)
+      state.currency += e.bounty;
       state.emit('enemyKilled');
     }
   }
