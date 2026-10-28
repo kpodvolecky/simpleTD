@@ -4,6 +4,7 @@ import { Tower } from '../entities/Tower';
 import { computeDamage, inRange, EFFECT_COLORS } from '../config/balance';
 import type { TargetingStrategy, Vec2 } from '../types';
 import { EffectsManager } from '../render/EffectsManager';
+import type { AudioManager } from '../audio/AudioManager';
 
 /**
  * Resolves all combat each tick (§3.3/§3.4/§5): towers firing at enemies, and
@@ -12,7 +13,7 @@ import { EffectsManager } from '../render/EffectsManager';
  * overkill is wasted with no carry-over (§3.3 simultaneity).
  */
 export class CombatSystem {
-  constructor(private readonly effects: EffectsManager = new EffectsManager()) {}
+  constructor(private readonly effects: EffectsManager = new EffectsManager(), private readonly audio?: AudioManager) {}
 
   update(state: GameState, dt: number): void {
     this.effects.update();
@@ -126,6 +127,12 @@ export class CombatSystem {
     if (state.damageNumbersEnabled) {
       this.effects.createDamageNumber(e.id, dmg);
     }
+
+    const soundId = tower.type.id === 'cannon' ? 'cannonHit'
+      : tower.type.id === 'frost' ? 'frostHit'
+      : tower.type.id === 'sniper' ? 'sniperHit'
+      : 'arrowHit';
+    this.audio?.play(soundId as any);
 
     // Every hit enemy blinks
     this.effects.triggerEnemyBlink(e.id);

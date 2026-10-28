@@ -10,6 +10,10 @@ export type SoundId =
   | 'place'
   | 'invalid'
   | 'hit'
+  | 'arrowHit'
+  | 'cannonHit'
+  | 'frostHit'
+  | 'sniperHit'
   | 'leak'
   | 'waveStart'
   | 'win'
@@ -27,6 +31,10 @@ const TONES: Record<SoundId, Tone> = {
   place: { freq: 440, durationMs: 90, type: 'square', gain: 0.25 },
   invalid: { freq: 140, durationMs: 160, type: 'sawtooth', gain: 0.25 },
   hit: { freq: 660, durationMs: 50, type: 'triangle', gain: 0.14 },
+  arrowHit: { freq: 880, durationMs: 40, type: 'triangle', gain: 0.12 },
+  cannonHit: { freq: 120, durationMs: 120, type: 'sawtooth', gain: 0.2 },
+  frostHit: { freq: 1200, durationMs: 80, type: 'sine', gain: 0.12 },
+  sniperHit: { freq: 1500, durationMs: 60, type: 'square', gain: 0.14 },
   leak: { freq: 200, durationMs: 220, type: 'sawtooth', gain: 0.3 },
   waveStart: { freq: 520, durationMs: 180, type: 'square', gain: 0.25 },
   win: { freq: 784, durationMs: 320, type: 'triangle', gain: 0.3 },

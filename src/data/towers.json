@@ -36,7 +36,7 @@
     "range": 2.0,
     "fireRatePerSec": 1.2,
     "targeting": "first",
-    "splashRadius": 0,
+    "splashRadius": 2,
     "slowPct": 40,
     "slowDurationMs": 1500,
     "sprite": "frost"

@@ -114,7 +114,7 @@ function startLevel(index: number): void {
   speedIndex = 0;
   hideOverlay();
 
-  game = new Game(levels[index], enemyTypes, towerTypes);
+  game = new Game(levels[index], enemyTypes, towerTypes, audio);
   renderer = new Renderer(canvas);
   hud = new Hud(hudEl, towerTypes, {
     onSelectTower: () => {},

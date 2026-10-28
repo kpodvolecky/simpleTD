@@ -4,6 +4,7 @@ import { CombatSystem } from './systems/CombatSystem';
 import { SpawnSystem } from './systems/SpawnSystem';
 import { EffectsManager } from './render/EffectsManager';
 import { EconomySystem } from './systems/EconomySystem';
+import type { AudioManager } from './audio/AudioManager';
 import { wouldBlockRoute } from './engine/Pathfinding';
 import { Tower } from './entities/Tower';
 import type {
@@ -23,14 +24,17 @@ export class Game {
   readonly spawn = new SpawnSystem();
   private readonly movement = new MovementSystem();
   readonly effects = new EffectsManager();
-  private readonly combat = new CombatSystem(this.effects);
+  private readonly combat = new CombatSystem(this.effects, this.audio);
   private readonly economy = new EconomySystem();
 
+  private audio?: AudioManager;
   constructor(
     level: LevelData,
     enemyTypes: EnemyTypeData[],
     towerTypes: TowerTypeData[],
+    audio?: AudioManager,
   ) {
+    this.audio = audio;
     this.state = new GameState(level, enemyTypes, towerTypes);
   }
 
