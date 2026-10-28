@@ -44,6 +44,8 @@ const TONES: Record<SoundId, Tone> = {
 export class AudioManager {
   private ctx: AudioContext | null = null;
   private volume: number;
+  private sampleBuffers = new Map<string, AudioBuffer>();
+  private sampleLoading = new Set<string>();
   private supported: boolean;
 
   constructor(volume = 1) {
@@ -72,8 +74,31 @@ export class AudioManager {
     if (ctx && ctx.state === 'suspended') void ctx.resume();
   }
 
+  private playSample(url: string): void {
+    const ctx = this.ensureCtx();
+    if (!ctx) return;
+    if (ctx.state === 'suspended') void ctx.resume();
+    if (this.sampleBuffers.has(url)) {
+      const buf = this.sampleBuffers.get(url)!;
+      const src = ctx.createBufferSource();
+      const gain = ctx.createGain();
+      src.buffer = buf;
+      gain.gain.value = this.volume;
+      src.connect(gain).connect(ctx.destination);
+      src.start();
+      return;
+    }
+    if (this.sampleLoading.has(url)) return;
+    this.sampleLoading.add(url);
+    fetch(url).then(r => r.arrayBuffer()).then(ab => ctx.decodeAudioData(ab)).then(buf => {
+      this.sampleBuffers.set(url, buf);
+      this.sampleLoading.delete(url);
+    }).catch(() => this.sampleLoading.delete(url));
+  }
+
   play(id: SoundId): void {
     if (!this.supported || this.volume <= 0) return;
+    if (id === 'cannonHit') { this.playSample('/media/canon-1.mp3'); return; }
     const ctx = this.ensureCtx();
     if (!ctx) return;
     if (ctx.state === 'suspended') void ctx.resume();
